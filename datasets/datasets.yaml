@@ -1,0 +1,30 @@
+- dataset_name: BNCI2014-001
+  dataset_id: BNCI2014-001
+  modalities: [EEG]
+  species: human
+  recording_task: motor_imagery
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 9
+  num_sessions: 2
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.3389/fnins.2012.00055
+  tags: [motor-imagery, BCI]
+  notes: "4-class motor imagery dataset. One of the most widely used BCI benchmarks."
+
+- dataset_name: TUH EEG Corpus
+  dataset_id: TUH-EEG
+  modalities: [EEG]
+  species: human
+  recording_task: other
+  access_type: registration_required
+  url: https://isip.piconepress.com/projects/tuh_eeg/
+  num_subjects: 14986
+  year: 2016
+  repository: Temple University Hospital
+  license: custom
+  paper_url: https://doi.org/10.3389/fnins.2020.00491
+  tags: [clinical, seizure, epilepsy]
+  notes: "Largest publicly available clinical EEG corpus. Includes multiple sub-corpora for seizure detection, abnormality classification, and more."

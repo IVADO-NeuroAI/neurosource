@@ -1,0 +1,17 @@
+- repository_name: OpenNeuro
+  url: https://openneuro.org
+  description: "Free and open platform for sharing neuroimaging data. All datasets are in BIDS format."
+  modalities: [EEG, MEG, fMRI, MRI_T1]
+  access_type: open
+  num_datasets: 1000
+  data_formats: [BIDS]
+  notes: "One of the largest open neuroscience data platforms. Supports DOI minting for datasets."
+
+- repository_name: DANDI Archive
+  url: https://dandiarchive.org
+  description: "BRAIN Initiative archive for publishing and sharing cellular neurophysiology data."
+  modalities: [spikes, calcium imaging]
+  access_type: open
+  num_datasets: 500
+  data_formats: [NWB]
+  notes: "Focused on cellular-level neural recordings. All data stored in Neurodata Without Borders (NWB) format."
