@@ -10,7 +10,7 @@
     },
     "modality": {
       "type": "string",
-      "enum": ["EEG", "fMRI", "ECoG", "spikes", "calcium", "other"]
+      "description": "Primary data modality."
     },
     "architecture": {
       "type": "string",
@@ -39,7 +39,8 @@
     },
     "dataset_tags": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "description": "References to datasets this model was trained on (uses dataset_id values from dataset entries)."
     },
     "open_weights": {
       "type": "boolean"
