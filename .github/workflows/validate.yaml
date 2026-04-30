@@ -1,9 +1,12 @@
-name: Validate Model Files
+name: Validate Catalog Entries
 
 on:
   pull_request:
     paths:
       - 'models/**/*.yaml'
+      - 'datasets/**/*.yaml'
+      - 'repositories/**/*.yaml'
+      - 'schema/**'
 
 jobs:
   validate:
@@ -14,8 +17,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Install jsonschema & PyYAML
+      - name: Install dependencies
         run: pip install jsonschema pyyaml
-      - name: Validate YAML files
-        run: |
-          python .github/scripts/validate_models.py
+      - name: Validate all entries
+        run: python .github/scripts/validate_models.py
