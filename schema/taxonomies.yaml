@@ -1,0 +1,67 @@
+modalities:
+  - EEG
+  - MEG
+  - fMRI
+  - MRI_T1
+  - MRI_T2
+  - fNIRS
+  - iEEG
+  - ECoG
+  - sEEG
+  - LFP
+  - spikes
+  - calcium imaging
+  - behavior
+  - other
+
+access_types:
+  - open
+  - registration_required
+  - restricted
+
+architectures:
+  - CNN
+  - Transformer
+  - RNN
+  - GNN
+  - VAE
+  - Diffusion
+  - other
+
+tasks:
+  - classification
+  - decoding
+  - reconstruction
+  - generation
+  - segmentation
+  - foundation_model
+  - other
+
+species:
+  - human
+  - mouse
+  - rat
+  - macaque
+  - zebrafish
+  - other
+
+recording_tasks:
+  - resting_state
+  - sleep
+  - passive
+  - active
+  - motor_imagery
+  - naturalistic_viewing
+  - cognitive
+  - other
+
+licenses:
+  - CC0
+  - CC-BY-4.0
+  - CC-BY-SA-4.0
+  - CC-BY-NC-4.0
+  - MIT
+  - BSD-3-Clause
+  - Apache-2.0
+  - custom
+  - other
