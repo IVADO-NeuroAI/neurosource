@@ -20,4 +20,4 @@ jobs:
       - name: Install dependencies
         run: pip install jsonschema pyyaml
       - name: Validate all entries
-        run: python .github/scripts/validate_models.py
+        run: python .github/scripts/validate_entries.py
