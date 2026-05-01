@@ -11,10 +11,10 @@ const config = {
     v4: true,
   },
 
-  url: 'https://ghazalehran.github.io',
+  url: 'https://ivado-neuroai.github.io',
   baseUrl: '/neurosource/',
 
-  organizationName: 'ghazalehran',
+  organizationName: 'IVADO-NeuroAI',
   projectName: 'neurosource',
 
   onBrokenLinks: 'throw',
@@ -56,11 +56,6 @@ const config = {
           {to: '/models', label: 'Models', position: 'left'},
           {to: '/datasets', label: 'Datasets', position: 'left'},
           {to: '/repositories', label: 'Repositories', position: 'left'},
-          // {
-          //   href: 'https://github.com/ghazalehran/neurosource',
-          //   label: 'GitHub',
-          //   position: 'right',
-          // },
         ],
       },
       footer: {
@@ -83,11 +78,11 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/ghazalehran/neurosource',
+                href: 'https://github.com/IVADO-NeuroAI/neurosource',
               },
               {
                 label: 'Contributing',
-                href: 'https://github.com/ghazalehran/neurosource/blob/main/CONTRIBUTING.md',
+                href: 'https://github.com/IVADO-NeuroAI/neurosource/blob/main/CONTRIBUTING.md',
               },
             ],
           },
