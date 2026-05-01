@@ -1,0 +1,10 @@
+model_name: ShallowFBCSPNet
+modality: EEG
+architecture: CNN
+task: classification
+year: 2017
+paper_url: http://dx.doi.org/10.1002/hbm.23730
+code_url: https://github.com/braindecode/braindecode/models/shallow_fbcsp.py
+dataset_tags: [BNCI2014-001]
+open_weights: false
+notes: "Baseline CNN widely used for EEG decoding."

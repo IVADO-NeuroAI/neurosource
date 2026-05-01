@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 
 import yaml
@@ -9,7 +10,8 @@ TAXONOMY_PATH = "schema/taxonomies.yaml"
 CATEGORIES = [
     {
         "name": "models",
-        "data_path": "models/models.yaml",
+        "data_path": "models/",
+        "multi_file": True,
         "schema_path": "schema/model.schema.json",
         "taxonomy_checks": {
             "modality": "modalities",
@@ -21,7 +23,8 @@ CATEGORIES = [
     },
     {
         "name": "datasets",
-        "data_path": "datasets/datasets.yaml",
+        "data_path": "datasets/",
+        "multi_file": True,
         "schema_path": "schema/dataset.schema.json",
         "taxonomy_checks": {
             "species": "species",
@@ -37,6 +40,7 @@ CATEGORIES = [
     {
         "name": "repositories",
         "data_path": "repositories/repositories.yaml",
+        "multi_file": False,
         "schema_path": "schema/repository.schema.json",
         "taxonomy_checks": {
             "access_type": "access_types",
@@ -59,21 +63,50 @@ def load_json(path):
         return json.load(f)
 
 
+def load_entries(category):
+    """Load entries as a list of (source_label, entry) tuples."""
+    if category["multi_file"]:
+        entries = []
+        for root, _, files in os.walk(category["data_path"]):
+            for f in sorted(files):
+                if f.endswith(".yaml"):
+                    path = os.path.join(root, f)
+                    data = load_yaml(path)
+                    if isinstance(data, dict):
+                        entries.append((path, data))
+                    elif isinstance(data, list):
+                        for i, item in enumerate(data):
+                            entries.append((f"{path}[{i}]", item))
+                    else:
+                        entries.append((path, None))
+        return entries
+    else:
+        data = load_yaml(category["data_path"])
+        source = category["data_path"]
+        if isinstance(data, list):
+            return [(f"{source}[{i}]", entry) for i, entry in enumerate(data)]
+        return [(source, None)]
+
+
 def validate_category(category, taxonomies):
     errors = []
-    data = load_yaml(category["data_path"])
     schema = load_json(category["schema_path"])
     name = category["name"]
+    id_field = category["id_field"]
+    entries = load_entries(category)
 
-    if not isinstance(data, list):
-        errors.append(f"[{name}] Expected a YAML list, got {type(data).__name__}")
+    if not entries:
+        print(f"  No entries found in {category['data_path']}")
         return errors
 
     seen_ids = set()
-    id_field = category["id_field"]
 
-    for i, entry in enumerate(data):
-        entry_label = entry.get(id_field, f"entry #{i + 1}")
+    for source, entry in entries:
+        if entry is None:
+            errors.append(f"[{name}] {source}: could not parse as a valid entry")
+            continue
+
+        entry_label = entry.get(id_field, source)
 
         try:
             validate(entry, schema)

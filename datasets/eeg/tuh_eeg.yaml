@@ -1,0 +1,14 @@
+dataset_name: TUH EEG Corpus
+dataset_id: TUH-EEG
+modalities: [EEG]
+species: human
+recording_task: other
+access_type: registration_required
+url: https://isip.piconepress.com/projects/tuh_eeg/
+num_subjects: 14986
+year: 2016
+repository: Temple University Hospital
+license: custom
+paper_url: https://doi.org/10.3389/fnins.2020.00491
+tags: [clinical, seizure, epilepsy]
+notes: "Largest publicly available clinical EEG corpus. Includes multiple sub-corpora for seizure detection, abnormality classification, and more."
