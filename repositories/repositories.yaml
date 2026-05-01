@@ -1,17 +1,368 @@
-- repository_name: OpenNeuro
-  url: https://openneuro.org
-  description: "Free and open platform for sharing neuroimaging data. All datasets are in BIDS format."
-  modalities: [EEG, MEG, fMRI, MRI_T1]
+
+
+- repository_name: BIL (Brain Image Library)
+  url: https://www.brainimagelibrary.org
+  description: Focused on 3D and 4D brain image datasets, supports large-volume data
+  modalities:
+  - MRI_T1
+  - MRI_T2
+  - microscopy
+  - other
+  access_type: registration_required
+
+- repository_name: Allen Brain Atlas
+  url: https://brain-map.org/
+  description: Provides high-resolution gene expression and spatial single-cell data
+  modalities:
+  - anatomy
+  - electrophysiology
+  - genomics
+  - transcriptomics
+  - other
+  access_type: mix_of_open_and_controlled
+
+
+- repository_name: BNCI Horizon 2020
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  description: Small multimodal datasets with limited number of participants
+  modalities:
+  - EEG
+  - ECoG
+  - EOG
+  - fNIRS
+  - biometrics
   access_type: open
-  num_datasets: 1000
-  data_formats: [BIDS]
-  notes: "One of the largest open neuroscience data platforms. Supports DOI minting for datasets."
+  num_datasets: 32
+
+- repository_name: BossDB (Brain Observatory Storage Service & Database)
+  url: https://bossdb.org
+  description: High-performance database for massive 3D/4D datasets, focused on Electron Microscopy and X-ray Micro/Nano Tomography.
+  modalities:
+  - structural imaging
+  - microscopy
+  - other
+  access_type: registration_required
+  num_datasets: 60
+
+- repository_name: Brain-CODE
+  url: https://www.braincode.ca
+  description: Ontario Brain Institute's FAIR-compliant neuroinformatics platform for sharing multi-modal neuroscience data.
+  modalities:
+  - EEG
+  - MEG
+  - fMRI
+  - MRI_T1
+  - structural imaging
+  - metadata
+  - other
+  access_type: controlled
+  num_datasets: 15
+
+- repository_name: CAMCAN (Cambridge Centre for Ageing and Neuroscience)
+  url: https://camcan-archive.mrc-cbu.cam.ac.uk
+  description: Lifespan neuroimaging and cognitive dataset with MEG and MRI from healthy adults.
+  modalities:
+  - MEG
+  - fMRI
+  - MRI_T1
+  - behavior
+  access_type: registration_required
+
+- repository_name: CONP (Canadian Open Neuroscience Platform)
+  url: https://portal.conp.ca
+  description: Federated portal aggregating open neuroscience datasets and tools from Canadian and international partners.
+  modalities:
+  - EEG
+  - MEG
+  - fMRI
+  - MRI_T1
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: 180
+
+- repository_name: DABI (Data Archive BRAIN Initiative)
+  url: https://dabi.loni.usc.edu
+  description: BRAIN Initiative data archive platform for sharing neuroscience research datasets.
+  modalities:
+  - other
+  access_type: controlled
+  num_datasets: +120
 
 - repository_name: DANDI Archive
   url: https://dandiarchive.org
-  description: "BRAIN Initiative archive for publishing and sharing cellular neurophysiology data."
-  modalities: [spikes, calcium imaging]
+  description: BRAIN Initiative archive for publishing and sharing cellular neurophysiology data.
+  modalities:
+  - spikes
+  - calcium imaging
+  - electrophysiology
+  - behavior
+  - other
   access_type: open
-  num_datasets: 500
-  data_formats: [NWB]
-  notes: "Focused on cellular-level neural recordings. All data stored in Neurodata Without Borders (NWB) format."
+  notes:
+    Focused on cellular-level neural recordings. All data stored in Neurodata Without Borders (NWB) format.
+  data_formats:
+  - NWB
+  num_datasets: +1070
+
+- repository_name: DRYAD
+  url: https://datadryad.org
+  description: 'Dryad is an open data publishing platform '
+  modalities:
+  - electrophysiology
+  - biometrics
+  - other
+  access_type: open
+
+- repository_name: EBRAINS
+  url: https://ebrains.eu
+  description: European neuroscience research infrastructure providing data, tools, and computing services.
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - anatomy
+  - genomics
+  - transcriptomics
+  - behavior
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: +1100
+
+- repository_name: EEGNet
+  url: https://eegnet.org
+  description: Collaborative EEG platform for advancing neuroscience.
+  modalities:
+  - EEG
+  access_type: registration_required
+  num_datasets: 13
+
+- repository_name: Figshare
+  url: https://figshare.com
+  description: General-purpose research repository hosting datasets across disciplines including neuroscience.
+  modalities:
+  - other
+  access_type: mix_of_open_and_controlled
+
+- repository_name: G-Node Open Data
+  url: https://gin.g-node.org
+  description: G-Node data platform for sharing neuroscience datasets and related resources.
+  modalities:
+  - electrophysiology
+  - fMRI
+  - spikes
+  - LFP
+  - other
+  access_type: open
+
+- repository_name: Harvard Dataverse
+  url: https://dataverse.harvard.edu
+  description: Large general-purpose research data repository with many neuroscience collections.
+  modalities:
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: +14,000
+
+- repository_name: HCP (Human Connectome Project)
+  url: https://www.humanconnectome.org
+  description: High-resolution multimodal connectome data
+  modalities:
+  - fMRI
+  - MRI_T1
+  - MRI_T2
+  - behavior
+  access_type: registration_required
+
+# TO RESUME HERE:
+- repository_name: IDR (Image Data Resource)
+  url: https://idr.openmicroscopy.org
+  description: Public repository of image datasets for microscopy
+  modalities:
+  - microscopy
+  - other
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: IEEE Data Port
+  url: https://ieee-dataport.org
+  description: Open access research data platform, including biomedical and health sciences data.
+  modalities:
+  - other
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: INDI (Child Mind Institute)
+  url: https://fcon_1000.projects.nitrc.org
+  description: International Neuroimaging Data-sharing Initiative datasets from the Child Mind Institute ecosystem.
+  modalities:
+  - fMRI
+  - MRI_T1
+  - behavior
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: McGill Brain Imaging Centre
+  url: https://www.mcgill.ca/bic
+  description: McGill Brain Imaging Centre hosting resources including OMEGA.
+  modalities:
+  - MEG
+  - MRI_T1
+  - fMRI
+  access_type: registration_required
+  notes: 'Data portal URL (draft): https://www.mcgill.ca/bic/neuroinformatics/omega [VERIFY] Approximate num_datasets not
+    set — fill when you have an estimate.'
+
+- repository_name: MEG UK Consortium
+  url: https://meguk.ac.uk
+  description: '[VERIFY] Short description pending — portal: https://meguk.ac.uk'
+  modalities:
+  - MEG
+  access_type: controlled
+  notes: '[VERIFY] Replace placeholder description — draft description was empty. [VERIFY] Approximate num_datasets not set
+    — fill when you have an estimate.'
+
+- repository_name: MOABB
+  url: https://moabb.neurotechx.com/docs/dataset_summary.html
+  description: Mother of all BCI Benchmarks.
+  modalities:
+  - EEG
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: National Sleep Research Resource (NSRR)
+  url: https://sleepdata.org/datasets
+  description: '[VERIFY] Short description pending — portal: https://sleepdata.org/datasets'
+  modalities:
+  - EEG
+  - EOG
+  - other
+  access_type: controlled
+  notes: '[VERIFY] Replace placeholder description — draft description was empty. [VERIFY] Approximate num_datasets not set
+    — fill when you have an estimate.'
+
+- repository_name: NEMAR
+  url: https://nemar.org
+  description: Neuroelectromagnetic data archive focused on EEG/MEG datasets and tools.
+  modalities:
+  - EEG
+  - MEG
+  access_type: controlled
+  data_formats:
+  - BIDS
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: NeuroMorpho
+  url: https://neuromorpho.org
+  description: Over one million neuron and glia reconstructions curated from 900+ labs
+  modalities:
+  - other
+  access_type: open
+  notes: '[VERIFY] modalities inferred broadly as ''other'' — specialize after auditing hosted modalities. [VERIFY] Approximate
+    num_datasets not set — fill when you have an estimate.'
+
+- repository_name: NeuroVault
+  url: https://neurovault.org
+  description: Cloud storage for neuroimaging results and atlases
+  modalities:
+  - fMRI
+  - MRI_T1
+  - other
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: OASIS (Open Access Series of Imaging studies)
+  url: https://www.oasis-brains.org
+  description: Aging, Alzheimer's, and healthy subjects study data
+  modalities:
+  - MRI_T1
+  - MRI_T2
+  access_type: controlled
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: OMEGA (Open MEG Archive)
+  url: https://www.mcgill.ca/bic/neuroinformatics/omega
+  description: Repository for raw MEG and anatomical MRI from healthy subjects
+  modalities:
+  - MEG
+  - MRI_T1
+  access_type: registration_required
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: OpenCogData
+  url: https://www.opencogdata.org
+  description: Open data hub for cognitive and neuroscience-related datasets.
+  modalities:
+  - EEG
+  - fMRI
+  - behavior
+  - other
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: OpenNeuro
+  url: https://openneuro.org
+  description: Free and open platform for sharing neuroimaging data. All datasets are in BIDS format.
+  modalities:
+  - EEG
+  - MEG
+  - fMRI
+  - MRI_T1
+  access_type: open
+  notes: One of the largest open neuroscience data platforms. Supports DOI minting for datasets.
+  data_formats:
+  - BIDS
+  num_datasets: 1000
+
+- repository_name: OSF (The Open Science Framework)
+  url: https://osf.io
+  description: Open-source platform for research data management and collaboration.
+  modalities:
+  - other
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: PhysioNet
+  url: https://physionet.org
+  description: Resource for complex physiological signals including EEG, ECG, PSG, and associated annotations.
+  modalities:
+  - EEG
+  - EOG
+  - other
+  access_type: controlled
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: Radboud Universiteit
+  url: https://data.ru.nl
+  description: '[VERIFY] Short description pending — portal: https://data.ru.nl'
+  modalities:
+  - other
+  access_type: controlled
+  notes: '[VERIFY] Replace placeholder description — draft description was empty. [VERIFY] Approximate num_datasets not set
+    — fill when you have an estimate.'
+
+- repository_name: TUH EEG Corpus
+  url: https://isip.piconepress.com/projects/tuh_eeg
+  description: World's largest open clinical EEG archive for seizure and event detection research (~30,000 recordings)
+  modalities:
+  - EEG
+  access_type: registration_required
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: UK Biobank
+  url: https://www.ukbiobank.ac.uk
+  description: Large-scale biomedical database with imaging, genetic, and health records for 500,000 UK participants.
+  modalities:
+  - fMRI
+  - MRI_T1
+  - MRI_T2
+  - behavior
+  - other
+  access_type: controlled
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: Zenodo
+  url: https://zenodo.org
+  description: Open-access repository for EU-funded research data, including neuroscience datasets
+  modalities:
+  - other
+  access_type: open
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
