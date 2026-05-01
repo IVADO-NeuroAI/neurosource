@@ -1,30 +1,113 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #0072ba;
+  --ifm-color-primary-dark: color-mix(in srgb, var(--ifm-color-primary) 92%, black);
+  --ifm-color-primary-darker: color-mix(in srgb, var(--ifm-color-primary) 84%, black);
+  --ifm-color-primary-darkest: color-mix(in srgb, var(--ifm-color-primary) 70%, black);
+  --ifm-color-primary-light: color-mix(in srgb, var(--ifm-color-primary) 92%, white);
+  --ifm-color-primary-lighter: color-mix(in srgb, var(--ifm-color-primary) 84%, white);
+  --ifm-color-primary-lightest: color-mix(in srgb, var(--ifm-color-primary) 70%, white);
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #0072ba;
+  --ifm-color-primary-dark: color-mix(in srgb, var(--ifm-color-primary) 92%, black);
+  --ifm-color-primary-darker: color-mix(in srgb, var(--ifm-color-primary) 84%, black);
+  --ifm-color-primary-darkest: color-mix(in srgb, var(--ifm-color-primary) 70%, black);
+  --ifm-color-primary-light: color-mix(in srgb, var(--ifm-color-primary) 92%, white);
+  --ifm-color-primary-lighter: color-mix(in srgb, var(--ifm-color-primary) 84%, white);
+  --ifm-color-primary-lightest: color-mix(in srgb, var(--ifm-color-primary) 70%, white);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/*
+ * Footer middle row = link columns (`footer__links`). Logo belongs there, right-aligned
+ * and vertically centered with that row — not vertically centered against copyright alone.
+ * Theme renders logo inside `footer__bottom`; use grid + display:contents to lift it into row 1.
+ */
+.footer > .container.container-fluid:has(.footer__logo) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+  align-items: center;
+}
+
+.footer > .container.container-fluid:has(.footer__logo) .footer__links {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+
+.footer > .container.container-fluid:has(.footer__logo) .footer__bottom {
+  display: contents;
+}
+
+.footer > .container.container-fluid:has(.footer__logo) .footer__bottom > .margin-bottom--sm {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  margin-bottom: 0 !important;
+}
+
+.footer > .container.container-fluid:has(.footer__logo) .footer__copyright {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0;
+  text-align: middle;
+}
+
+/* Footer without logo: keep a normal bottom strip */
+.footer > .container.container-fluid:not(:has(.footer__logo)) .footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer > .container.container-fluid:not(:has(.footer__logo)) .footer__copyright {
+  margin: 0;
+  text-align: center;
+}
+
+.footer .footer__bottom img.footer__logo,
+.footer .footer__bottom .footer__logo img {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 996px) {
+  .footer > .container.container-fluid:has(.footer__logo) {
+    display: block;
+  }
+
+  .footer > .container.container-fluid:has(.footer__logo) .footer__links {
+    grid-column: unset;
+    grid-row: unset;
+  }
+
+  .footer > .container.container-fluid:has(.footer__logo) .footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .footer > .container.container-fluid:has(.footer__logo) .footer__bottom > .margin-bottom--sm {
+    grid-column: unset;
+    grid-row: unset;
+    align-self: flex-end;
+    justify-self: unset;
+  }
+
+  .footer > .container.container-fluid:has(.footer__logo) .footer__copyright {
+    grid-column: unset;
+    grid-row: unset;
+    text-align: left;
+  }
 }

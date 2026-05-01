@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'NeuroSource',
   tagline: 'A living, open catalogue of neural foundation models, datasets, and data repositories.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/ivado_R1_logo.png',
 
   future: {
     v4: true,
@@ -18,7 +18,7 @@ const config = {
   projectName: 'neurosource',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: "warn",
+  // onBrokenMarkdownLinks: "warn",
 
   i18n: {
     defaultLocale: 'en',
@@ -47,19 +47,28 @@ const config = {
       },
       navbar: {
         title: 'NeuroSource',
+        logo: {
+          alt: 'IVADO logo',
+          src: 'img/ivado_logo.png',
+          href: '/',
+        },
         items: [
           {to: '/models', label: 'Models', position: 'left'},
           {to: '/datasets', label: 'Datasets', position: 'left'},
           {to: '/repositories', label: 'Repositories', position: 'left'},
-          {
-            href: 'https://github.com/ghazalehran/neurosource',
-            label: 'GitHub',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://github.com/ghazalehran/neurosource',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
         ],
       },
       footer: {
         style: 'dark',
+        logo: {
+          alt: 'IVADO logo',
+          src: 'img/ivado_logo.png',
+        },
         links: [
           {
             title: 'Catalog',
@@ -83,7 +92,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} NeuroSource Contributors. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} NeuroSource Contributors.`,
       },
       prism: {
         theme: prismThemes.github,

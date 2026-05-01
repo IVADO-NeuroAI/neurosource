@@ -10,9 +10,20 @@
   overflow: hidden;
 }
 
+.homeLogo {
+  width: 140px;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
+  }
+
+  .homeLogo {
+    width: 110px;
   }
 }
 
