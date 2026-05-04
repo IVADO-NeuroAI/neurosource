@@ -8,8 +8,10 @@ modalities:
   - fMRI
   - MRI_T1
   - MRI_T2
+  - PET
   - EOG
   - fNIRS
+  - PSG
   - structural imaging
   - functional imaging
   - LFP
