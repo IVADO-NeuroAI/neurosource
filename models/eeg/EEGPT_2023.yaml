@@ -1,7 +1,7 @@
 model_name: EEGPT
 modality: EEG
 architecture: Transformer
-task: foundation_model
+task: Foundation Model
 year: 2023
 paper_url: https://dl.acm.org/doi/10.5555/3737916.3739155
 code_url: https://github.com/BINE022/EEGPT
