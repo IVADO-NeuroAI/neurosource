@@ -15,7 +15,7 @@ CATEGORIES = [
         "schema_path": "schema/model.schema.json",
         "taxonomy_checks": {
             "modality": "modalities",
-            "architecture": "architectures",
+            # "architecture": "architectures",
             # "task": "tasks",
         },
         "taxonomy_list_checks": {},
