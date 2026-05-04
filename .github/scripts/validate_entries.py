@@ -16,7 +16,7 @@ CATEGORIES = [
         "taxonomy_checks": {
             "modality": "modalities",
             "architecture": "architectures",
-            "task": "tasks",
+            # "task": "tasks",
         },
         "taxonomy_list_checks": {},
         "id_field": "model_name",
