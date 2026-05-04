@@ -76,6 +76,7 @@ The validator currently checks:
 - schema compliance for models and datasets
 - YAML structure
 - filename conventions
+- folder-to-modality consistency
 - dataset references used by model entries
 
 Validation logic lives in `.github/scripts/validate_catalog.py`.

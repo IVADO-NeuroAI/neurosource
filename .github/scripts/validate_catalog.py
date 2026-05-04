@@ -4,10 +4,19 @@ import sys
 from pathlib import Path
 
 import yaml
-from jsonschema import ValidationError, validate
+from jsonschema import Draft7Validator, FormatChecker
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+FORMAT_CHECKER = FormatChecker()
+MODALITY_DIR_MAP = {
+    "EEG": "eeg",
+    "fMRI": "fmri",
+    "ECoG": "ecog",
+    "spikes": "spikes",
+    "calcium": "calcium",
+    "other": "other",
+}
 
 CATEGORIES = [
     {
@@ -43,6 +52,10 @@ def iter_yaml_files(root):
     return sorted(root.rglob("*.yaml"))
 
 
+def slugify_model_name(name):
+    return re.sub(r"[^A-Za-z0-9_-]+", "", name)
+
+
 def validate_entry_file(path, schema, filename_pattern):
     errors = []
 
@@ -54,12 +67,52 @@ def validate_entry_file(path, schema, filename_pattern):
         errors.append(f"{path}: YAML entry must be a single mapping/object")
         return None, errors
 
-    try:
-        validate(data, schema)
-    except ValidationError as exc:
-        errors.append(f"{path}: {exc.message}")
+    validator = Draft7Validator(schema, format_checker=FORMAT_CHECKER)
+    for error in validator.iter_errors(data):
+        errors.append(f"{path}: {error.message}")
 
     return data, errors
+
+
+def validate_model_consistency(path, entry):
+    errors = []
+
+    expected_dir = MODALITY_DIR_MAP.get(entry["modality"])
+    parent_dir = path.parent.name
+    if expected_dir and parent_dir != expected_dir:
+        errors.append(
+            f"{path}: modality '{entry['modality']}' should live under '{expected_dir}/'"
+        )
+
+    expected_name = f"{slugify_model_name(entry['model_name'])}_{entry['year']}.yaml"
+    if path.name != expected_name:
+        errors.append(
+            f"{path}: filename should be '{expected_name}' based on model_name and year"
+        )
+
+    return errors
+
+
+def validate_dataset_consistency(path, entry):
+    errors = []
+
+    if len(entry["modalities"]) == 1:
+        expected_dir = MODALITY_DIR_MAP.get(entry["modalities"][0], "other")
+        parent_dir = path.parent.name
+        if parent_dir != expected_dir:
+            errors.append(
+                f"{path}: single-modality dataset should live under '{expected_dir}/'"
+            )
+    elif path.parent.name == "other":
+        pass
+
+    expected_name = f"{entry['dataset_id']}.yaml"
+    if path.name != expected_name:
+        errors.append(
+            f"{path}: filename should be '{expected_name}' based on dataset_id"
+        )
+
+    return errors
 
 
 def collect_category(category):
@@ -75,6 +128,11 @@ def collect_category(category):
         errors.extend(file_errors)
         if data is None:
             continue
+
+        if category["name"] == "models":
+            errors.extend(validate_model_consistency(path, data))
+        elif category["name"] == "datasets":
+            errors.extend(validate_dataset_consistency(path, data))
 
         entry_id = data.get(category["id_field"])
         if entry_id in seen_ids:

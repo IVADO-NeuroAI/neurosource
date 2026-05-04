@@ -40,6 +40,7 @@ The pull request workflow runs the same validation in CI.
 - Use one YAML file per dataset.
 - Use descriptive filenames such as `ShallowFBCSPNet_2017.yaml`.
 - Prefer dataset filenames that match the dataset identifier, such as `BNCI2014-001.yaml`.
+- Place entries under the modality directory that matches their metadata whenever possible.
 - Keep metadata factual and concise.
 - Use `dataset_tags` for datasets explicitly mentioned in the paper or codebase.
 - Use `notes` for brief context, not long summaries.
