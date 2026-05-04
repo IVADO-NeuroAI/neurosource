@@ -28,12 +28,12 @@ CATEGORIES = [
         "schema_path": "schema/dataset.schema.json",
         "taxonomy_checks": {
             "species": "species",
-            "recording_task": "recording_tasks",
             "access_type": "access_types",
             "license": "licenses",
         },
         "taxonomy_list_checks": {
             "modalities": "modalities",
+            "recording_task": "recording_tasks",
         },
         "id_field": "dataset_id",
     },
@@ -61,6 +61,18 @@ def load_yaml(path):
 def load_json(path):
     with open(path) as f:
         return json.load(f)
+
+
+def taxonomy_multivalues(entry, field):
+    """Values for taxonomy checks on fields that may be a string or list of strings."""
+    value = entry.get(field)
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list):
+        return value
+    return []
 
 
 def load_entries(category):
@@ -123,8 +135,7 @@ def validate_category(category, taxonomies):
                 )
 
         for field, taxonomy_key in category["taxonomy_list_checks"].items():
-            values = entry.get(field, [])
-            for value in values:
+            for value in taxonomy_multivalues(entry, field):
                 if value not in taxonomies[taxonomy_key]:
                     allowed = ", ".join(taxonomies[taxonomy_key])
                     errors.append(
