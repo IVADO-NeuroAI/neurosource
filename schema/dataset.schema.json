@@ -24,8 +24,9 @@
       "description": "Species of the subjects."
     },
     "recording_task": {
-      "type": "string",
-      "description": "Task performed during recording."
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tasks performed during recording."
     },
     "access_type": {
       "type": "string",
@@ -59,10 +60,12 @@
       "type": "string",
       "description": "License of the dataset (validated against taxonomies.yaml)."
     },
+    "bids_compliant": {
+      "type": "boolean"
+      },
     "paper_url": {
       "type": "string",
-      "format": "uri",
-      "description": "Link to the associated publication."
+      "format": "uri"
     },
     "paper_doi": {
       "type": "string",
