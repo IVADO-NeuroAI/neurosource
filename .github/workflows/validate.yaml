@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'models/**/*.yaml'
+      - 'schema/**/*.json'
+      - '.github/scripts/validate_models.py'
 
 jobs:
   validate:
@@ -17,5 +19,4 @@ jobs:
       - name: Install jsonschema & PyYAML
         run: pip install jsonschema pyyaml
       - name: Validate YAML files
-        run: |
-          python .github/scripts/validate_models.py
+        run: python .github/scripts/validate_models.py
