@@ -11,9 +11,11 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 FORMAT_CHECKER = FormatChecker()
 MODALITY_DIR_MAP = {
     "EEG": "eeg",
+    "MEG": "meg",
     "fMRI": "fmri",
     "ECoG": "ecog",
     "spikes": "spikes",
+    "LFP": "lfp",
     "calcium": "calcium",
     "other": "other",
 }

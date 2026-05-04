@@ -1,0 +1,10 @@
+model_name: HTNet
+modality: ECoG
+architecture: CNN with Hilbert projection layer
+task: transfer learning decoding
+year: 2021
+paper_doi: 10.1088/1741-2552/abda0b
+paper_url: https://pubmed.ncbi.nlm.nih.gov/33418552/
+code_url: https://github.com/BruntonUWBio/HTNet_generalized_decoding
+open_weights: true
+notes: "Generalized neural decoder for cross-participant and cross-modality transfer, designed to handle heterogeneous ECoG electrode placements."

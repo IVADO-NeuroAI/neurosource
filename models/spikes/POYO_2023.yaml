@@ -1,0 +1,9 @@
+model_name: POYO
+modality: spikes
+architecture: Perceiver with cross-attention
+task: foundation model
+year: 2023
+paper_url: https://poyo-brain.github.io/
+code_url: https://github.com/neuro-galaxy/poyo
+open_weights: true
+notes: "Unified large-scale neural population decoding framework with spike tokenization and pretrained population models across many sessions."

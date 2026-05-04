@@ -12,7 +12,7 @@
     },
     "modality": {
       "type": "string",
-      "enum": ["EEG", "fMRI", "ECoG", "spikes", "calcium", "other"]
+      "enum": ["EEG", "MEG", "fMRI", "ECoG", "spikes", "LFP", "calcium", "other"]
     },
     "architecture": {
       "type": "string",
