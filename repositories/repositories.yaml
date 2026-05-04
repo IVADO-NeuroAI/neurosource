@@ -93,7 +93,7 @@
   description: BRAIN Initiative archive for publishing and sharing cellular neurophysiology data.
   modalities:
   - spikes
-  - calcium imaging
+  - calcium
   - electrophysiology
   - behavior
   - other
@@ -349,7 +349,7 @@
   - functional imaging
   - spikes
   - LFP
-  - calcium imaging
+  - calcium
   - microscopy
   - genomics
   - transcriptomics
