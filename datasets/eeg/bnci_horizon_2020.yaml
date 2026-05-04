@@ -350,7 +350,6 @@
   modalities: [ECoG]
   species: human
   recording_task: [motor_imagery]
-  - motor_imagery
   access_type: open
   url: https://bnci-horizon-2020.eu/database/data-sets
   num_subjects: 10
