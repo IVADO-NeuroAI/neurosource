@@ -39,7 +39,8 @@
     },
     "dataset_tags": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "description": "Dataset identifiers referenced by this model entry."
     },
     "open_weights": {
       "type": "boolean"

@@ -1,8 +1,13 @@
 # Schema
 
-`model.schema.json` defines the required structure for model catalog entries.
+The `schema/` directory defines the required structure for catalog entries.
 
-## Required fields
+## Available schemas
+
+- `model.schema.json`
+- `dataset.schema.json`
+
+## Model required fields
 
 - `model_name`
 - `modality`
@@ -10,17 +15,17 @@
 - `year`
 - `paper_url`
 
-## Optional fields
+## Dataset required fields
 
-- `task`
-- `paper_doi`
-- `code_url`
-- `dataset_tags`
-- `open_weights`
-- `notes`
+- `dataset_id`
+- `dataset_name`
+- `modalities`
+- `access_type`
+- `url`
 
-## Notes
+## Common notes
 
-- `dataset_tags` is currently a freeform list of dataset identifiers or short names.
-- `notes` should stay short and factual.
-- Entries are stored as YAML files under `models/<modality>/`.
+- model entries live under `models/<modality>/`
+- dataset entries live under `datasets/<modality>/`
+- `dataset_tags` in models should reference existing dataset IDs
+- `notes` should stay short and factual

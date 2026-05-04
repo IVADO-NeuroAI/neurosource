@@ -30,7 +30,9 @@ NeuroSource makes that information structured, searchable, and reviewable in the
 This repository contains:
 
 - A JSON schema for model entries
+- A JSON schema for dataset entries
 - Seed YAML records for EEG models
+- Seed YAML records for EEG datasets
 - CI validation for contributed entries
 - Basic contribution guidance for community submissions
 
@@ -45,6 +47,8 @@ neurosource/
 |   `-- workflows/
 |-- models/
 |   `-- eeg/
+|-- datasets/
+|   `-- eeg/
 |-- papers/
 |-- schema/
 |-- docs/
@@ -56,7 +60,8 @@ neurosource/
 Key directories:
 
 - `models/`: one YAML file per model entry, organized by modality
-- `schema/`: JSON schema used to validate model metadata
+- `datasets/`: one YAML file per dataset entry, organized by modality
+- `schema/`: JSON schemas used to validate catalog metadata
 - `.github/workflows/`: automated validation on pull requests
 - `papers/`: optional notes or summaries that complement catalog entries
 
@@ -64,15 +69,16 @@ Key directories:
 
 ## Validation
 
-Model entries are validated automatically in pull requests.
+Catalog entries are validated automatically in pull requests.
 
 The validator currently checks:
 
-- schema compliance
+- schema compliance for models and datasets
 - YAML structure
-- filename convention: `<model_name>_<year>.yaml`
+- filename conventions
+- dataset references used by model entries
 
-Validation logic lives in `.github/scripts/validate_models.py`.
+Validation logic lives in `.github/scripts/validate_catalog.py`.
 
 ---
 
@@ -82,6 +88,8 @@ Current examples include:
 
 - `models/eeg/ShallowFBCSPNet_2017.yaml`
 - `models/eeg/EEGPT.yaml`
+- `datasets/eeg/BNCI2014-001.yaml`
+- `datasets/eeg/BNCI2014-002.yaml`
 
 Example format:
 
@@ -108,8 +116,9 @@ In short:
 
 1. Fork the repository.
 2. Add a model file under `models/<modality>/<model_name>_<year>.yaml`.
-3. Follow `schema/model.schema.json`.
-4. Open a pull request.
+3. Add a dataset file under `datasets/<modality>/<dataset_id>.yaml` when needed.
+4. Follow the relevant schema in `schema/`.
+5. Open a pull request.
 
 Pull requests are validated automatically for schema compliance.
 
@@ -121,6 +130,7 @@ Pull requests are validated automatically for schema compliance.
 - Prefer structured metadata over long freeform summaries
 - Make additions easy to review automatically
 - Keep the repository useful even without a separate web interface
+- Preserve consistency across linked catalog entries
 
 ---
 

@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Neural Dataset Schema",
+  "type": "object",
+  "required": ["dataset_id", "dataset_name", "modalities", "access_type", "url"],
+  "properties": {
+    "dataset_id": {
+      "type": "string",
+      "description": "Stable identifier used by model entries to reference this dataset."
+    },
+    "dataset_name": {
+      "type": "string",
+      "description": "Full dataset name."
+    },
+    "modalities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Modalities included in the dataset."
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1980,
+      "maximum": 2100
+    },
+    "species": {
+      "type": "string",
+      "description": "Primary species represented in the dataset."
+    },
+    "task": {
+      "type": "string",
+      "description": "Main experimental or benchmark task associated with the dataset."
+    },
+    "access_type": {
+      "type": "string",
+      "enum": ["open", "registration_required", "restricted", "other"]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "paper_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "paper_doi": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
