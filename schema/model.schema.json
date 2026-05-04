@@ -2,10 +2,12 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Neural Model Schema",
   "type": "object",
+  "additionalProperties": false,
   "required": ["model_name", "modality", "architecture", "year", "paper_url"],
   "properties": {
     "model_name": {
       "type": "string",
+      "minLength": 1,
       "description": "Full name of the model."
     },
     "modality": {
@@ -14,10 +16,12 @@
     },
     "architecture": {
       "type": "string",
+      "minLength": 1,
       "description": "Core neural architecture (CNN, Transformer, etc.)."
     },
     "task": {
       "type": "string",
+      "minLength": 1,
       "description": "Main task (classification, reconstruction, decoding, etc.)."
     },
     "year": {
@@ -27,6 +31,7 @@
     },
     "paper_doi": {
       "type": "string",
+      "minLength": 1,
       "description": "DOI of the paper (optional)."
     },
     "paper_url": {
@@ -46,7 +51,8 @@
       "type": "boolean"
     },
     "notes": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     }
   }
 }
