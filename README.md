@@ -144,6 +144,6 @@ If you use or reference **NeuroSource** in your work:
   title        = {NeuroSource: An Open Catalogue of Neural Foundation Models},
   author       = {Contributors to the NeuroSource Project},
   year         = {2025},
-  howpublished = {\url{https://github.com/ghazalehran/neurosource}}
+  howpublished = {\url{https://github.com/IVADO-NeuroAI/neurosource}}
 }
 ```
