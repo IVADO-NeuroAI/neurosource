@@ -1,15 +1,498 @@
-dataset_name: BNCI Four class motor imagery (001-2014)
-dataset_id: BNCI2014-001
-modalities: [EEG]
-species: human
-recording_task: motor_imagery
-access_type: open
-url: https://bnci-horizon-2020.eu/database/data-sets
-num_subjects: 9
-num_sessions: 2
-year: 2014
-repository: BNCI Horizon 2020
-license: CC-BY-4.0
-paper_url: https://doi.org/10.3389/fnins.2012.00055
-tags: [motor-imagery, BCI]
-notes: "4-class motor imagery dataset. One of the most widely used BCI benchmarks."
+- dataset_name: BNCI Four class motor imagery (001-2014)
+  dataset_id: BNCI2014-001
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [motor_imagery]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 9
+  num_sessions: 18
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  paper_url: https://doi.org/10.3389/fnins.2012.00055
+  tags: [motor-imagery, BCI]
+  notes: Originally BCI Competition IV data set 2a.
+
+- dataset_name: BNCI Two class motor imagery (002-2014)
+  dataset_id: BNCI2014-002
+  modalities: [EEG]
+  species: human
+  recording_task: [motor_imagery]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 14
+  num_sessions: 28
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  tags: [motor-imagery, BCI]
+
+- dataset_name: BNCI Mental arithmetic (003-2014)
+  dataset_id: BNCI2014-003
+  modalities: [fNIRS]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 8
+  num_sessions: 8
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  paper_url: https://doi.org/10.1007/s11517-011-0792-5
+  tags: [cognitive, BCI]
+
+- dataset_name: BNCI Two class motor imagery (004-2014)
+  dataset_id: BNCI2014-004
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [motor_imagery]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 9
+  num_sessions: 18
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  tags: [motor-imagery, BCI]
+  paper_url: http://dx.doi.org/10.1109/TNSRE.2007.906956
+  notes: Originally BCI Competition IV data set 2b.
+
+- dataset_name: BNCI Auditory oddball during hypnosis (005-2014)
+  dataset_id: BNCI2014-005
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [active, passive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 2
+  num_sessions: 2
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  tags: [auditory, hypnosis]
+
+- dataset_name: BNCI SCP training in stroke (006-2014)
+  dataset_id: BNCI2014-006
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [active, passive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 2
+  num_sessions: 2
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  tags: [stroke, slow-cortical-potential, neurofeedback]
+
+- dataset_name: BNCI Two-finger gameplay with deliberately failing controller (007-2014)
+  dataset_id: BNCI2014-007
+  modalities:
+  - EEG
+  - EOG
+  - biometrics
+  - other
+  species: human
+  recording_task: [active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 10
+  num_sessions: 10
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1109/TNSRE.2011.2166562
+  tags:
+  - game
+  - movement
+  - multimodal
+  - BCI
+  notes: >-
+   Dataset to study the impact of loss of control on movement BCI.
+   Includes EMG, temperature, GSR, and respiration in addition to EEG/EOG.
+
+- dataset_name: BNCI P300 speller with ALS patients (008-2014)
+  dataset_id: BNCI2014-008
+  modalities: [EEG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 8
+  num_sessions: 8
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.3389/fnhum.2013.00732
+  tags:
+  - P300
+  - ERP
+  - ALS
+  - BCI
+
+- dataset_name: BNCI Covert and overt ERP-based BCI (009-2014)
+  dataset_id: BNCI2014-009
+  modalities: [EEG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 10
+  num_sessions: 20
+  year: 2014
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: http://dx.doi.org/10.1088/1741-2560/11/3/035008
+  tags: [ERP, covert-attention, overt-attention, BCI, P300]
+
+- dataset_name: BNCI Autocalibration and recurrent adaptation (001-2015)
+  dataset_id: BNCI2015-001
+  modalities: [EEG]
+  species: human
+  recording_task: [motor_imagery]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 12
+  num_sessions: 28
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: http://dx.doi.org/10.1109/TNSRE.2012.2189584
+  tags:
+  - motor-imagery
+  - adaptation
+  - autocalibration
+  - BCI
+
+- dataset_name: BNCI Neuroprosthetic control of an EEG/EOG BNCI (002-2015)
+  dataset_id: BNCI2015-002
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 1
+  num_sessions: 1
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1186/1743-0003-11-165
+  tags: [neuroprosthetics, BCI]
+
+- dataset_name: BNCI Visual P300 speller (003-2015)
+  dataset_id: BNCI2015-003
+  modalities: [EEG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 10
+  num_sessions: 10
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1016/j.neulet.2009.06.045
+  tags: [P300, speller, BCI]
+
+- dataset_name: BNCI Individual imagery (004-2015)
+  dataset_id: BNCI2015-004
+  modalities: [EEG]
+  species: human
+  recording_task: [motor_imagery]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 9
+  num_sessions: 9
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  tags: [motor-imagery, BCI]
+
+- dataset_name: BNCI Covert shifts of attention (005-2015)
+  dataset_id: BNCI2015-005
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 8
+  num_sessions: 8
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1186/1743-0003-8-24
+  tags: [attention, BCI]
+
+- dataset_name: BNCI Music BCI (006-2015)
+  dataset_id: BNCI2015-006
+  modalities: [EEG]
+  species: human
+  recording_task: [passive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 11
+  num_sessions: 11
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1088/1741-2560/11/2/026009
+  tags: [music, BCI]
+
+- dataset_name: BNCI Motion VEP Speller (007-2015)
+  dataset_id: BNCI2015-007
+  modalities: [EEG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 16
+  num_sessions: 16
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1088/1741-2560/9/4/045006
+  tags: [motion, VEP, speller, gaze-dependent communication, BCI]
+
+- dataset_name: BNCI Center Speller (008-2015)
+  dataset_id: BNCI2015-008
+  modalities: [EEG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 13
+  num_sessions: 13
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1088/1741-2560/8/6/066003
+  tags: [ERP, speller, gaze-dependent communication, covert-attention, BCI]
+
+- dataset_name: BNCI AMUSE - an auditory speller based on spatial hearing (009-2015)
+  dataset_id: BNCI2015-009
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 21
+  num_sessions: 21
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1371/journal.pone.0009813
+  tags: [auditory, spatial-hearing, speller, BCI]
+
+- dataset_name: BNCI RSVP speller (010-2015)
+  dataset_id: BNCI2015-010
+  modalities: [EEG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 12
+  num_sessions: 12
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1016/j.clinph.2012.12.050
+  tags: [RSVP, speller, gaze-dependent communication, BCI]
+
+- dataset_name: BNCI ECoG-based BCI based on cognitive control (011-2015)
+  dataset_id: BNCI2015-011
+  modalities: [ECoG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 1
+  num_sessions: 2
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  paper_url: https://doi.org/10.1002/ana.21985
+  tags: [cognitive-control, BCI]
+
+- dataset_name: BNCI PASS2D - auditory ERP Speller (012-2015)
+  dataset_id: BNCI2015-012
+  modalities: [EEG]
+  species: human
+  recording_task: [passive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 12
+  num_sessions: 12
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.3389/fnins.2011.00099
+  tags: [auditory, ERP, speller, BCI]
+
+- dataset_name: BNCI Monitoring error-related potentials (013-2015)
+  dataset_id: BNCI2015-013
+  modalities: [EEG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 6
+  num_sessions: 12
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1109/TNSRE.2010.2053387
+  tags: [error-related-potentials, BCI]
+
+- dataset_name: BNCI ECoG-based 1-class motor imagery BCI (001-2016)
+  dataset_id: BNCI2016-001
+  modalities: [ECoG]
+  species: human
+  recording_task: [motor_imagery]
+  - motor_imagery
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 10
+  num_sessions: 10
+  year: 2016
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  tags: [motor-imagery, BCI]
+
+- dataset_name: BNCI Emergency braking during simulated driving (002-2016)
+  dataset_id: BNCI2016-002
+  modalities: [EEG, EOG, biometrics, other]
+  species: human
+  recording_task: [active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 18
+  num_sessions: 18
+  year: 2016
+  repository: BNCI Horizon 2020
+  license: CC-BY-NC-ND-4.0
+  paper_url: https://doi.org/10.1088/1741-2560/8/5/056001
+  tags: [driving, simulation, BCI]
+  notes: Includes EMG and additional sensors alongside EEG and EOG.
+
+- dataset_name: BNCI Upper limb movement decoding from EEG (001-2017)
+  dataset_id: BNCI2017-001
+  modalities: [EEG, EOG, biometrics]
+  species: human
+  recording_task: [motor_imagery, active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 15
+  num_sessions: 30
+  year: 2017
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1371/journal.pone.0182578
+  tags: [movement-decoding, BCI]
+
+- dataset_name: BNCI Attempted arm and hand movements in persons with spinal cord injury (001-2019)
+  dataset_id: BNCI2019-001
+  modalities: [EEG, EOG, biometrics]
+  species: human
+  recording_task: [motor_imagery, active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 10
+  num_sessions: 14
+  year: 2019
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1038/s41598-019-43594-9
+  tags: [spinal-cord-injury, movement, BCI]
+
+- dataset_name: BNCI Reach and Grasp movement decoding from EEG with gel, water and dry electrodes (001-2020)
+  dataset_id: BNCI2020-001
+  modalities: [EEG, EOG, biometrics]
+  species: human
+  recording_task: [active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 15
+  num_sessions: 45
+  year: 2020
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.3389/fnins.2020.00849
+  tags: [reach-and-grasp, electrodes, movement-decoding, BCI]
+  notes: Fifteen participants per electrode system (gel, water, dry).
+
+- dataset_name: BNCI Spatial attention shifts to colored items - an EEG-based BCI (002-2020)
+  dataset_id: BNCI2020-002
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 18
+  num_sessions: 18
+  year: 2020
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.3389/fnins.2020.591777
+  tags: [spatial-attention, gaze-dependent communication, BCI]
+
+- dataset_name: BNCI EEG Correlates of Difficulty Level (001-2022)
+  dataset_id: BNCI2022-001
+  modalities: [EEG, EOG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 13
+  num_sessions: 26
+  year: 2022
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1109/TAFFC.2021.3059688
+  tags: [flying, simulation, difficulty-decoding, closed-loop, adaptation, BCI]
+
+- dataset_name: BNCI Handwritten Character Classification from EEG through Continuous Kinematic Decoding (001-2024)
+  dataset_id: BNCI2024-001
+  modalities: [EEG, EOG, behavior]
+  species: human
+  recording_task: [motor_imagery, active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 20
+  num_sessions: 20
+  year: 2024
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1016/j.compbiomed.2024.109132
+  tags: [handwriting, kinematics-decoding, movement-decoding, classification, BCI]
+
+- dataset_name: 'BNCI Simultaneous encoding of speed, distance, and direction in discrete reaching: an EEG study (001-2025)'
+  dataset_id: BNCI2025-001
+  modalities: [EEG, EOG, biometrics]
+  species: human
+  recording_task: [motor_imagery, active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 20
+  num_sessions: 20
+  year: 2025
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1088/1741-2552/ada0ea
+  tags: [reaching, kinematics-decoding, movement-decoding, BCI]
+
+- dataset_name: BNCI Continuous 2D trajectory decoding from attempted movement in able-bodied participants (002-2025)
+  dataset_id: BNCI2025-002
+  modalities: [EEG, EOG, biometrics]
+  species: human
+  recording_task: [motor_imagery, active]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 20
+  num_sessions: 90
+  year: 2025
+  repository: BNCI Horizon 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1088/1741-2552/ac689f
+  tags: [trajectory-decoding, movement-decoding, BCI]
