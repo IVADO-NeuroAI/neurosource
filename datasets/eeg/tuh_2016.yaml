@@ -2,7 +2,7 @@ dataset_name: TUH EEG Corpora
 dataset_id: TUH_EEG_2016
 modalities: [EEG]
 species: human
-recording_task: other
+recording_task: [other]
 access_type: registration_required
 url: https://isip.piconepress.com/projects/tuh_eeg/
 num_subjects: 14987

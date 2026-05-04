@@ -2,7 +2,7 @@ dataset_name: OMEGA — Open MEG Archives
 dataset_id: omega-open-meg-archive
 modalities: [MEG, MRI_T1, metadata]
 species: human
-recording_task: resting_state
+recording_task: [resting_state]
 access_type: registration_required
 url: https://www.mcgill.ca/bic/neuroinformatics/omega
 num_subjects: 644

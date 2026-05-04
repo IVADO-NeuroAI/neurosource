@@ -2,7 +2,7 @@
   dataset_id: oasis-1
   modalities: [MRI_T1, metadata]
   species: human
-  recording_task: resting_state
+  recording_task: [resting_state]
   access_type: controlled
   url: https://sites.wustl.edu/oasisbrains/home/oasis-1/
   num_subjects: 416
@@ -19,7 +19,7 @@
   dataset_id: oasis-2
   modalities: [MRI_T1, metadata]
   species: human
-  recording_task: resting_state
+  recording_task: [resting_state]
   access_type: controlled
   url: https://sites.wustl.edu/oasisbrains/home/oasis-2/
   num_subjects: 150
@@ -38,7 +38,7 @@
   dataset_id: oasis-3
   modalities: [MRI_T1, MRI_T2, fMRI, PET, metadata, other]
   species: human
-  recording_task: resting_state
+  recording_task: [resting_state]
   access_type: controlled
   url: https://sites.wustl.edu/oasisbrains/home/oasis-3/
   num_subjects: 1379
@@ -56,7 +56,7 @@
   dataset_id: oasis-4
   modalities: [MRI_T1, MRI_T2, fMRI, PET, metadata, other]
   species: human
-  recording_task: resting_state
+  recording_task: [resting_state]
   access_type: controlled
   url: https://sites.wustl.edu/oasisbrains/home/oasis-4/
   num_subjects: 663
