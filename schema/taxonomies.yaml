@@ -6,18 +6,21 @@ modalities:
   - sEEG
   - MEG
   - fMRI
+  - dMRI
   - MRI_T1
   - MRI_T2
   - PET
   - EOG
   - fNIRS
   - PSG
+  - TMS
   - structural imaging
   - functional imaging
   - LFP
   - spikes
   - calcium
   - microscopy
+  - spectroscopy
   - genomics
   - anatomy
   - behavior
@@ -66,6 +69,8 @@ recording_tasks:
   - motor_imagery
   - naturalistic_viewing
   - cognitive
+  - visual
+  - auditory
   - other
 
 licenses:

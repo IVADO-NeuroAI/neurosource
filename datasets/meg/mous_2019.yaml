@@ -1,0 +1,16 @@
+dataset_name: MOUS (Mother of Unification Studies)
+dataset_id: MOUS
+modalities: [MEG, fMRI, behavior]
+species: human
+recording_task: [resting_state, active]
+access_type: controlled
+url: https://doi.org/10.34973/37n0-yc51
+num_subjects: 204
+repository: Radboud University
+tags: [language task, resting-state, healthy-controls]
+year: 2019
+bids_compliant: true
+paper_url: https://doi.org/10.1038/s41597-019-0020-y
+paper_doi: 10.1038/s41597-019-0020-y
+notes: >-
+  A multimodal neuroimaging data from healthy human subjects to study language processing.
