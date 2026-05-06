@@ -76,6 +76,9 @@
       "items": { "type": "string" },
       "description": "Freeform tags for search and filtering."
     },
+    "clinical_based_sample": {
+      "type": "boolean"
+      },
     "notes": {
       "type": "string",
       "description": "Freeform notes or context."
