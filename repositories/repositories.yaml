@@ -358,3 +358,25 @@
   - other
   access_type: mix_of_open_and_controlled
   notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: BALSA (Brain Analysis Library of Spatial maps and Atlases)
+  url: https://balsa.wustl.edu/
+  description: A database for hosting and sharing neuroimaging and neuroanatomical datasets for human and primate species.
+  modalities:
+  - MEG
+  - structural imaging
+  - functional imaging
+  - other
+  access_type: registration_required
+
+- repository_name: DPUK (Data Portal UK)
+  url: https://portal.dementiasplatform.uk/
+  description: Open access platform with data from over 3 million people.
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - genomics
+  - other
+  access_type: registration_required
+  num_datasets: 53
