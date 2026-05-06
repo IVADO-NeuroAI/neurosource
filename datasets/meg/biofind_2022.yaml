@@ -2,7 +2,7 @@
   dataset_id: BIOFIND_2022
   modalities: [MEG, MRI_T1]
   species: human
-  recording_task: [resting-state]
+  recording_task: []
   access_type: registration_required
   url: https://doi.org/10.48532/007000
   num_subjects: 324
@@ -13,4 +13,4 @@
   paper_doi: 10.1016/j.neuroimage.2022.119344
   tags: [Alzheimer's, healthy-controls, mild-cognitive-impairment, dementia]
   bids_compliant: true
-  notes: A multi-site, multi-participant MEG resting-state dataset to study dementia.
+  notes: A multi-site, multi-participant MEG resting_state dataset to study dementia.

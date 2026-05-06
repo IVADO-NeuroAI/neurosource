@@ -2,7 +2,7 @@
   dataset_id: MEG_MASC_2023
   modalities: [MEG]
   species: human
-  recording_task: [resting-state, cognitive, auditory, active]
+  recording_task: [resting_state, cognitive, auditory, active]
   access_type: open
   url: https://doi.org/10.17605/OSF.IO/AG3KJ
   num_subjects: 27

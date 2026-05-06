@@ -2,7 +2,7 @@
   dataset_id: NatMEG-PD_2023
   modalities: [MEG, MRI_T1, biometrics]
   species: human
-  recording_task: [resting-state, active, passive]
+  recording_task: [resting_state, active, passive]
   access_type: registration_required
   url: https://search.kg.ebrains.eu/instances/d55146e8-fc86-44dd-95db-7191fdca7f30
   num_subjects: 134

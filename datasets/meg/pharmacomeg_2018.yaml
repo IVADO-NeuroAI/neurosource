@@ -2,7 +2,7 @@
   dataset_id: PharmacoMeg_2018
   modalities: [MEG]
   species: human
-  recording_task: [resting-state]
+  recording_task: [resting_state]
   access_type: open
   url: https://doi.org/10.7910/DVN/9Q1SKM
   num_subjects: 17

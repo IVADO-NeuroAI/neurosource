@@ -2,7 +2,7 @@
   dataset_id: LIBRIBRAIN_2025
   modalities: [MEG]
   species: human
-  recording_task: [resting-state, active, auditory]
+  recording_task: [resting_state, active, auditory]
   access_type: open
   url: https://huggingface.co/datasets/pnpl/LibriBrain
   num_subjects: 1
