@@ -69,6 +69,7 @@ recording_tasks:
   - motor_imagery
   - naturalistic_viewing
   - cognitive
+  - imagery
   - visual
   - auditory
   - other
