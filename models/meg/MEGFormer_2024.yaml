@@ -1,5 +1,5 @@
 model_name: MEGFormer
-modality: MEG
+modality: [MEG]
 architecture: CNN Transformer
 task: speech decoding
 year: 2024

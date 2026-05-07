@@ -14,11 +14,13 @@ CATEGORIES = [
         "multi_file": True,
         "schema_path": "schema/model.schema.json",
         "taxonomy_checks": {
-            "modality": "modalities",
+            # "modality": "modalities",
             # "architecture": "architectures",
             # "task": "tasks",
         },
-        "taxonomy_list_checks": {},
+        "taxonomy_list_checks": {
+            "modality": "modalities",
+        },
         "id_field": "model_name",
     },
     {

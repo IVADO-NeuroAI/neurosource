@@ -11,7 +11,8 @@
       "description": "Full name of the model."
     },
     "modality": {
-      "type": "string",
+      "type": "array",
+      "items": { "type": "string" },
       "description": "Primary data modality."
     },
     "architecture": {

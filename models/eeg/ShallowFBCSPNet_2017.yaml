@@ -1,5 +1,5 @@
 model_name: ShallowFBCSPNet
-modality: EEG
+modality: [EEG]
 architecture: CNN
 task: classification
 year: 2017
