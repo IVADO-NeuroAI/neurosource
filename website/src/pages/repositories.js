@@ -29,13 +29,17 @@ const filters = [
   {field: 'access_type', label: 'Access', options: taxonomies.access_types},
 ];
 
+const sortedRepositories = [...repositories].sort((a, b) =>
+  (a.repository_name ?? '').localeCompare(b.repository_name ?? '', undefined, {sensitivity: 'base'})
+);
+
 export default function RepositoriesPage() {
   return (
     <Layout title="Repositories" description="Catalog of data repositories">
       <div className="container margin-vert--lg">
         <Heading as="h1">Repositories</Heading>
         <p>Data hosting platforms for neural data.</p>
-        <CatalogTable data={repositories} columns={columns} filters={filters} />
+        <CatalogTable data={sortedRepositories} columns={columns} filters={filters} />
       </div>
     </Layout>
   );

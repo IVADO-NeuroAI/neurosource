@@ -44,13 +44,17 @@ const filters = [
   {field: 'access_type', label: 'Access', options: taxonomies.access_types},
 ];
 
+const sortedDatasets = [...datasets].sort((a, b) =>
+  (a.dataset_name ?? '').localeCompare(b.dataset_name ?? '', undefined, {sensitivity: 'base'})
+);
+
 export default function DatasetsPage() {
   return (
     <Layout title="Datasets" description="Catalog of neural datasets">
       <div className="container margin-vert--lg">
         <Heading as="h1">Datasets</Heading>
         <p>Curated neural datasets with metadata on modality, species, and access.</p>
-        <CatalogTable data={datasets} columns={columns} filters={filters} />
+        <CatalogTable data={sortedDatasets} columns={columns} filters={filters} />
       </div>
     </Layout>
   );

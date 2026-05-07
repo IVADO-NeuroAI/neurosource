@@ -32,13 +32,17 @@ const filters = [
   {field: 'task', label: 'Task', options: taxonomies.tasks},
 ];
 
+const sortedModels = [...models].sort((a, b) =>
+  (a.model_name ?? '').localeCompare(b.model_name ?? '', undefined, {sensitivity: 'base'})
+);
+
 export default function ModelsPage() {
   return (
     <Layout title="Models" description="Catalog of neural models">
       <div className="container margin-vert--lg">
         <Heading as="h1">Models</Heading>
         <p>Neural foundation models and baselines for brain data.</p>
-        <CatalogTable data={models} columns={columns} filters={filters} />
+        <CatalogTable data={sortedModels} columns={columns} filters={filters} />
       </div>
     </Layout>
   );
