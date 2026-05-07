@@ -5,23 +5,23 @@ import CatalogTable from '@site/src/components/CatalogTable';
 import repositories from '@site/src/data/repositories.json';
 import taxonomies from '@site/src/data/taxonomies.json';
 
-function LinkCell(url) {
-  if (!url) return '—';
+function RepositoryNameCell(name, entry) {
+  if (!name) return '—';
+  if (!entry?.url) return name;
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      Link
+    <a href={entry.url} target="_blank" rel="noopener noreferrer">
+      {name}
     </a>
   );
 }
 
 const columns = [
-  {field: 'repository_name', label: 'Repository'},
+  {field: 'repository_name', label: 'Repository', render: RepositoryNameCell},
   {field: 'description', label: 'Description'},
   {field: 'modalities', label: 'Modalities'},
   {field: 'access_type', label: 'Access'},
   {field: 'num_datasets', label: 'Datasets'},
   {field: 'data_formats', label: 'Formats'},
-  {field: 'url', label: 'URL', render: LinkCell},
 ];
 
 const filters = [

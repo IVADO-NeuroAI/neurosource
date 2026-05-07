@@ -14,8 +14,18 @@ function LinkCell(url) {
   );
 }
 
+function DatasetNameCell(name, entry) {
+  if (!name) return '—';
+  if (!entry?.url) return name;
+  return (
+    <a href={entry.url} target="_blank" rel="noopener noreferrer">
+      {name}
+    </a>
+  );
+}
+
 const columns = [
-  {field: 'dataset_name', label: 'Dataset'},
+  {field: 'dataset_name', label: 'Dataset', render: DatasetNameCell},
   {field: 'modalities', label: 'Modalities'},
   {field: 'species', label: 'Species'},
   {field: 'recording_task', label: 'Recording Task'},
@@ -24,7 +34,6 @@ const columns = [
   {field: 'year', label: 'Year'},
   {field: 'repository', label: 'Repository'},
   {field: 'license', label: 'License'},
-  {field: 'url', label: 'URL', render: LinkCell},
   {field: 'paper_url', label: 'Paper', render: LinkCell},
 ];
 
