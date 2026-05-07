@@ -172,7 +172,6 @@
   - behavior
   access_type: registration_required
 
-# TO RESUME HERE:
 - repository_name: IDR (Image Data Resource)
   url: https://idr.openmicroscopy.org
   description: Public repository of high-quality microscopy image data.
@@ -380,3 +379,13 @@
   - other
   access_type: registration_required
   num_datasets: 53
+
+- repository_name: HPA (The Human Protein Atlas)
+  url: https://www.proteinatlas.org/
+  description: Open access resource for human proteins.
+  modalities:
+  - transcriptomics
+  - genomics
+  - metadata
+  - other
+  access_type: open
