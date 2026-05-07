@@ -16,7 +16,6 @@ function LinkCell(url) {
 
 const columns = [
   {field: 'dataset_name', label: 'Dataset'},
-  {field: 'dataset_id', label: 'ID'},
   {field: 'modalities', label: 'Modalities'},
   {field: 'species', label: 'Species'},
   {field: 'recording_task', label: 'Recording Task'},
