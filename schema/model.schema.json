@@ -11,8 +11,9 @@
       "description": "Full name of the model."
     },
     "modality": {
-      "type": "string",
-      "enum": ["EEG", "MEG", "fMRI", "ECoG", "spikes", "LFP", "calcium", "other"]
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Primary data modality."
     },
     "architecture": {
       "type": "string",
@@ -45,7 +46,7 @@
     "dataset_tags": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Dataset identifiers referenced by this model entry."
+      "description": "References to datasets this model was trained on (uses dataset_id values from dataset entries)."
     },
     "open_weights": {
       "type": "boolean"

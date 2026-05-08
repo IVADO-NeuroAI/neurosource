@@ -1,0 +1,19 @@
+- dataset_name: NatMEG-PD - The Swedish National Facility for Magnetoencephalography Parkinson's Disease Dataset
+  dataset_id: NatMEG-PD_2023
+  modalities: [MEG, MRI_T1, biometrics]
+  species: human
+  recording_task: [resting_state, active, passive]
+  access_type: registration_required
+  url: https://search.kg.ebrains.eu/instances/d55146e8-fc86-44dd-95db-7191fdca7f30
+  num_subjects: 134
+  year: 2023
+  repository: EBRAINS
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1038/s41597-024-02987-w
+  paper_doi: 10.1038/s41597-024-02987-w
+  tags: [motor behavior, Parkinson's disease, healthy-controls, movement]
+  clinical_based_sample: true
+  bids_compliant: true
+  notes: >-
+    MEG dataset acquired from patients with Parkinson's disease and healthy controls,
+    during resting-state, active and passive movement tasks.

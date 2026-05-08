@@ -1,66 +1,87 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Neural Dataset Schema",
+  "title": "Dataset Schema",
   "type": "object",
-  "additionalProperties": false,
-  "required": ["dataset_id", "dataset_name", "modalities", "access_type", "url"],
+  "required": ["dataset_name", "dataset_id", "modalities", "access_type", "url"],
   "properties": {
-    "dataset_id": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Stable identifier used by model entries to reference this dataset."
-    },
     "dataset_name": {
       "type": "string",
-      "minLength": 1,
-      "description": "Full dataset name."
+      "description": "Full name of the dataset."
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "description": "Unique identifier tag for this dataset (e.g., BNCI2014-001)."
     },
     "modalities": {
       "type": "array",
+      "items": { "type": "string" },
       "minItems": 1,
-      "items": {
-        "type": "string"
-      },
-      "description": "Modalities included in the dataset."
+      "description": "Data modalities present in the dataset."
+    },
+    "species": {
+      "type": "string",
+      "description": "Species of the subjects."
+    },
+    "recording_task": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tasks performed during recording."
+    },
+    "access_type": {
+      "type": "string",
+      "description": "Access level."
+    },
+    "num_subjects": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of subjects in the dataset."
+    },
+    "num_sessions": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of recording sessions."
     },
     "year": {
       "type": "integer",
       "minimum": 1980,
       "maximum": 2100
     },
-    "species": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Primary species represented in the dataset."
-    },
-    "task": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Main experimental or benchmark task associated with the dataset."
-    },
-    "access_type": {
-      "type": "string",
-      "enum": ["open", "registration_required", "restricted", "other"]
-    },
     "url": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "description": "Primary URL to access the dataset."
     },
+    "repository": {
+      "type": "string",
+      "description": "Data platform hosting this dataset (e.g., OpenNeuro, DANDI)."
+    },
+    "license": {
+      "type": "string",
+      "description": "License of the dataset (validated against taxonomies.yaml)."
+    },
+    "bids_compliant": {
+      "type": "boolean"
+      },
     "paper_url": {
       "type": "string",
       "format": "uri"
     },
     "paper_doi": {
       "type": "string",
-      "minLength": 1
+      "description": "DOI of the associated publication."
     },
-    "license": {
-      "type": "string",
-      "minLength": 1
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Freeform tags for search and filtering."
     },
+    "clinical_based_sample": {
+      "type": "boolean"
+      },
     "notes": {
       "type": "string",
-      "minLength": 1
+      "description": "Freeform notes or context."
     }
   }
 }

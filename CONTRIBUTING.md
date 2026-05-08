@@ -29,7 +29,7 @@ If you are unsure whether a change fits the current repository scope, open an is
 If your environment has Python plus `pyyaml` and `jsonschema` installed, you can run:
 
 ```bash
-python .github/scripts/validate_catalog.py
+python .github/scripts/validate_entries.py
 ```
 
 The pull request workflow runs the same validation in CI.

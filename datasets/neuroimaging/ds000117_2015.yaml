@@ -1,0 +1,17 @@
+- dataset_name: Wakeman & Henson dataset (ds000117)
+  dataset_id: ds000117_2015
+  modalities: [MEG, MRI_T1, fMRI, EEG]
+  species: human
+  recording_task: [resting_state, cognitive, auditory, active]
+  access_type: open
+  url: https://doi.org/10.18112/openneuro.ds000117.v1.1.0
+  num_subjects: 17
+  num_sessions: 10
+  year: 2015
+  repository: OpenNeuro
+  license: CC0
+  paper_url: https://doi.org/10.1038/sdata.2015.1
+  paper_doi: 10.1038/sdata.2015.1
+  tags: [face-processing, healthy-controls, adult]
+  bids_compliant: true
+  notes: A multi-subject, multimodal human neuroimaging dataset on face processing.

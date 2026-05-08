@@ -1,0 +1,71 @@
+- dataset_name: OASIS 1 (Open Access Series of Imaging studies)
+  dataset_id: oasis-1
+  modalities: [MRI_T1, metadata]
+  species: human
+  recording_task: [resting_state]
+  access_type: controlled
+  url: https://sites.wustl.edu/oasisbrains/home/oasis-1/
+  num_subjects: 416
+  num_sessions: 434
+  repository: OASIS
+  year: 2007
+  license: CC-BY-4.0
+  tags: [aging, Alzheimer's, healthy-controls]
+  paper_url: https://doi.org/10.1162/jocn.2007.19.9.1498
+  paper_doi: 10.1162/jocn.2007.19.9.1498
+  notes: Cross-sectional MRI Data in Young, Middle Aged, Nondemented and Demented Older Adults.
+
+- dataset_name: OASIS 2 (Open Access Series of Imaging studies)
+  dataset_id: oasis-2
+  modalities: [MRI_T1, metadata]
+  species: human
+  recording_task: [resting_state]
+  access_type: controlled
+  url: https://sites.wustl.edu/oasisbrains/home/oasis-2/
+  num_subjects: 150
+  num_sessions: 373
+  repository: OASIS
+  year: 2010
+  license: CC-BY-4.0
+  tags: [aging, Alzheimer's, healthy-controls]
+  paper_url: https://doi.org/10.1162/jocn.2009.21407
+  paper_doi: 10.1162/jocn.2009.21407
+  notes: >-
+    Cross-sectional MR Longitudinal MRI Data in Nondemented and Demented Older Adults Data
+    in Young, Middle Aged, Nondemented and Demented Older Adults.
+
+- dataset_name: OASIS 3 (Open Access Series of Imaging studies)
+  dataset_id: oasis-3
+  modalities: [MRI_T1, MRI_T2, fMRI, PET, metadata, other]
+  species: human
+  recording_task: [resting_state]
+  access_type: controlled
+  url: https://sites.wustl.edu/oasisbrains/home/oasis-3/
+  num_subjects: 1379
+  num_sessions: 373
+  repository: OASIS
+  year: 2019
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1101/2019.12.13.19014902
+  paper_doi: 10.1101/2019.12.13.19014902
+  notes: >-
+    Longitudinal Multimodal Neuroimaging, Clinical, and Cognitive Dataset for Normal Aging
+    and Alzheimer's Disease.
+
+- dataset_name: OASIS 4 (Open Access Series of Imaging studies)
+  dataset_id: oasis-4
+  modalities: [MRI_T1, MRI_T2, fMRI, PET, metadata, other]
+  species: human
+  recording_task: [resting_state]
+  access_type: controlled
+  url: https://sites.wustl.edu/oasisbrains/home/oasis-4/
+  num_subjects: 663
+  num_sessions: 676
+  repository: OASIS
+  year: 2020
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1016/j.nicl.2020.102248
+  paper_doi: 10.1016/j.nicl.2020.102248
+  notes: >-
+    Clinical cohort was evaluated for memory disorders and dementia including clinical,
+    csf, neurospychometric, and neuroimaging assessments.

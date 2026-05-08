@@ -1,0 +1,16 @@
+- dataset_name: WAND Welsh Advanced Neuroimaging Database
+  dataset_id: WAND_2025
+  modalities: [MEG, MRI_T1, MRI_T2, dMRI, fMRI, TMS, spectroscopy, behavior]
+  species: human
+  recording_task: [resting_state, cognitive, visual, auditory, active]
+  access_type: open
+  url: https://git.cardiff.ac.uk/cubric/wand
+  num_subjects: 170
+  year: 2025
+  repository: Cardiff University
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1038/s41597-024-04154-7
+  paper_doi: 10.1038/s41597-024-04154-7
+  tags: [healthy-controls, adult, intervention, behavioral, reversal-learning]
+  bids_compliant: true
+  notes: A multi-modal dataset integrating advanced MRI, MEG, and tMS for multi-scale brain analysis

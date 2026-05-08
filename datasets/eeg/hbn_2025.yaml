@@ -1,0 +1,20 @@
+dataset_name: Healthy Brain Network (HBN) EEG — Releases 1 - 11
+dataset_id: HBN_EEG_2025
+modalities: [EEG, behavior]
+species: human
+recording_task: 
+ - resting_state
+ - passive
+ - active
+ - naturalistic_viewing
+ - cognitive
+access_type: open
+url: https://doi.org/10.18112/openneuro.ds005505.v1.0.1
+paper_url: https://dx.doi.org/10.1038/sdata.2017.181
+num_subjects: 3155
+repository: OpenNeuro
+year: 2025
+license: CC-BY-SA-4.0
+bids_compliant: true
+tags: [pediatric, development, learning, disorders, mental-health]
+

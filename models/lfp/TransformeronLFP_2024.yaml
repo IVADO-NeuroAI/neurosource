@@ -1,5 +1,5 @@
 model_name: Transformer on LFP
-modality: LFP
+modality: [LFP]
 architecture: Transformer
 task: classification
 year: 2024

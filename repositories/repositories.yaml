@@ -1,0 +1,391 @@
+
+
+- repository_name: BIL (Brain Image Library)
+  url: https://www.brainimagelibrary.org
+  description: Focused on 3D and 4D brain image datasets, supports large-volume data
+  modalities:
+  - MRI_T1
+  - MRI_T2
+  - microscopy
+  - other
+  access_type: registration_required
+
+- repository_name: Allen Brain Atlas
+  url: https://brain-map.org/
+  description: Provides high-resolution gene expression and spatial single-cell data
+  modalities:
+  - anatomy
+  - electrophysiology
+  - genomics
+  - transcriptomics
+  - other
+  access_type: mix_of_open_and_controlled
+
+
+- repository_name: BNCI Horizon 2020
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  description: Small multimodal datasets with limited number of participants
+  modalities:
+  - EEG
+  - ECoG
+  - EOG
+  - fNIRS
+  - biometrics
+  access_type: open
+  num_datasets: 32
+
+- repository_name: BossDB (Brain Observatory Storage Service & Database)
+  url: https://bossdb.org
+  description: High-performance database for massive 3D/4D datasets, focused on Electron Microscopy and X-ray Micro/Nano Tomography.
+  modalities:
+  - structural imaging
+  - microscopy
+  - other
+  access_type: registration_required
+  num_datasets: 60
+
+- repository_name: Brain-CODE
+  url: https://www.braincode.ca
+  description: Ontario Brain Institute's FAIR-compliant neuroinformatics platform for sharing multi-modal neuroscience data.
+  modalities:
+  - EEG
+  - MEG
+  - fMRI
+  - MRI_T1
+  - structural imaging
+  - metadata
+  - other
+  access_type: controlled
+  num_datasets: 15
+
+- repository_name: CAMCAN (Cambridge Centre for Ageing and Neuroscience)
+  url: https://camcan-archive.mrc-cbu.cam.ac.uk
+  description: Lifespan neuroimaging and cognitive dataset with MEG and MRI from healthy adults.
+  modalities:
+  - MEG
+  - fMRI
+  - MRI_T1
+  - behavior
+  access_type: registration_required
+
+- repository_name: CONP (Canadian Open Neuroscience Platform)
+  url: https://portal.conp.ca
+  description: Federated portal aggregating open neuroscience datasets and tools from Canadian and international partners.
+  modalities:
+  - EEG
+  - MEG
+  - fMRI
+  - MRI_T1
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: 180
+
+- repository_name: DABI (Data Archive BRAIN Initiative)
+  url: https://dabi.loni.usc.edu
+  description: BRAIN Initiative data archive platform for sharing neuroscience research datasets.
+  modalities:
+  - other
+  access_type: controlled
+  num_datasets: 120
+
+- repository_name: DANDI Archive
+  url: https://dandiarchive.org
+  description: BRAIN Initiative archive for publishing and sharing cellular neurophysiology data.
+  modalities:
+  - spikes
+  - calcium
+  - electrophysiology
+  - behavior
+  - other
+  access_type: open
+  notes:
+    Focused on cellular-level neural recordings. All data stored in Neurodata Without Borders (NWB) format.
+  data_formats:
+  - NWB
+  num_datasets: 1070
+
+- repository_name: DRYAD
+  url: https://datadryad.org
+  description: 'Dryad is an open data publishing platform '
+  modalities:
+  - electrophysiology
+  - biometrics
+  - other
+  access_type: open
+
+- repository_name: EBRAINS
+  url: https://ebrains.eu
+  description: European neuroscience research infrastructure providing data, tools, and computing services.
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - anatomy
+  - genomics
+  - transcriptomics
+  - behavior
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: 1100
+
+- repository_name: EEGNet
+  url: https://eegnet.org
+  description: Collaborative EEG platform for advancing neuroscience.
+  modalities:
+  - EEG
+  access_type: registration_required
+  num_datasets: 13
+
+- repository_name: Figshare
+  url: https://figshare.com
+  description: General-purpose research repository hosting datasets across disciplines including neuroscience.
+  modalities:
+  - other
+  access_type: mix_of_open_and_controlled
+
+- repository_name: G-Node Open Data
+  url: https://gin.g-node.org
+  description: G-Node data platform for sharing neuroscience datasets and related resources.
+  modalities:
+  - electrophysiology
+  - fMRI
+  - spikes
+  - LFP
+  - other
+  access_type: open
+
+- repository_name: Harvard Dataverse
+  url: https://dataverse.harvard.edu
+  description: Large general-purpose research data repository with many neuroscience collections.
+  modalities:
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: 14000
+
+- repository_name: HCP (Human Connectome Project)
+  url: https://www.humanconnectome.org
+  description: High-resolution multimodal connectome data
+  modalities:
+  - fMRI
+  - MRI_T1
+  - MRI_T2
+  - behavior
+  access_type: registration_required
+
+- repository_name: IDR (Image Data Resource)
+  url: https://idr.openmicroscopy.org
+  description: Public repository of high-quality microscopy image data.
+  modalities:
+  - microscopy
+  access_type: open
+  num_datasets: 143
+
+- repository_name: IEEE Data Port
+  url: https://ieee-dataport.org
+  description: Open access research data platform, including biomedical and health sciences data.
+  modalities:
+  - electrophysiology
+  - biometrics
+  - other
+  access_type: open
+
+- repository_name: INDI (Child Mind Institute)
+  url: https://fcon_1000.projects.nitrc.org
+  description: International Neuroimaging Data-sharing Initiative datasets from the Child Mind Institute ecosystem.
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - behavior
+  - metadata
+  access_type: open
+
+- repository_name: McGill Brain Imaging Centre
+  url: https://www.mcgill.ca/bic
+  description: McGill Brain Imaging Centre hosting resources including OMEGA.
+  modalities:
+  - MEG
+  - MRI_T1
+  - fMRI
+  - PET
+  access_type: registration_required
+
+- repository_name: MEG UK Consortium
+  url: https://meguk.ac.uk
+  description: Platform for MEG research data sharing in the UK and Ireland.
+  modalities:
+  - MEG
+  access_type: controlled
+
+- repository_name: MOABB (Mother of all BCI Benchmarks)
+  url: https://moabb.neurotechx.com/docs/dataset_summary.html
+  description: Reproducible benchmarking for EEG-based BCIs.
+  modalities:
+  - EEG
+  access_type: open
+  num_datasets: 158
+
+- repository_name: National Sleep Research Resource (NSRR)
+  url: https://sleepdata.org/datasets
+  description: >-
+    NHLBI-supported repository for sharing large amounts of sleep data (polysomnography, actigraphy
+    and questionnaire-based) from multiple cohorts, clinical trials, and other data sources.
+  modalities:
+  - PSG
+  - biometrics
+  - metadata
+  access_type: controlled
+  num_datasets: 51
+
+- repository_name: NEMAR
+  url: https://nemar.org
+  description: >-
+    NeuroElectroMagnetic data Archive and tools Resource: Neuroelectromagnetic data archive focused
+    on EEG/MEG datasets and tools shared publicly through the OpenNeuro archive of human neuroimaging data.
+  modalities:
+  - EEG
+  - iEEG
+  - MEG
+  - behavior
+  - metadata
+  access_type: open
+  data_formats:
+  - BIDS
+
+- repository_name: NeuroMorpho
+  url: https://neuromorpho.org
+  description: Over one million neuron and glia reconstructions curated from 900+ labs
+  modalities:
+  - microscopy
+  - other
+  access_type: open
+
+- repository_name: NeuroVault
+  url: https://neurovault.org
+  description: A public repository of unthresholded statistical maps, parcellations, and atlases of the brain.
+  modalities:
+  - fMRI
+  - structural imaging
+  - other
+  access_type: open
+
+- repository_name: OpenCogData
+  url: https://nimh-dsst.github.io/OpenCogData/
+  description: A collection of publicly available cognitve task datasets.
+  modalities:
+  - EEG
+  - fMRI
+  - behavior
+  - other
+  access_type: open
+  num_datasets: 794
+
+- repository_name: OpenNeuro
+  url: https://openneuro.org
+  description: Free and open platform for sharing BIDS-compliant neuroimaging data.
+  modalities:
+  - EEG
+  - iEEG
+  - MEG
+  - fMRI
+  - MRI_T1
+  - PET
+  - fNIRS
+  access_type: open
+  data_formats:
+  - BIDS
+  num_datasets: 1720
+
+- repository_name: OSF (The Open Science Framework)
+  url: https://osf.io
+  description: Open-source platform for research data management and collaboration.
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - other
+  access_type: registration_required
+
+- repository_name: PhysioNet
+  url: https://physionet.org
+  description: >-
+    A global platform for biomedical research and an NIH-funded publishing platform for rigorously curated,
+    de-identified biomedical and clinical data, software, machine-learning models, and educational resources.
+  modalities:
+  - electrophysiology
+  - biometrics
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: 560
+
+- repository_name: Radboud Universiteit
+  url: https://data.ru.nl
+  description: Data repository for researchers of Radboud University.
+  modalities:
+  - other
+  access_type: mix_of_open_and_controlled
+  num_datasets: 815
+
+- repository_name: UK Biobank
+  url: https://www.ukbiobank.ac.uk
+  description: Large-scale biomedical database with imaging, genetic, and health records for 500,000 UK participants.
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - behavior
+  - biometrics
+  - genomics
+  - other
+  access_type: controlled
+
+- repository_name: Zenodo
+  url: https://zenodo.org
+  description: Open-access repository for EU-funded research data, including neuroscience datasets
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - spikes
+  - LFP
+  - calcium
+  - microscopy
+  - genomics
+  - transcriptomics
+  - behavior
+  - biometrics
+  - other
+  access_type: mix_of_open_and_controlled
+  notes: '[VERIFY] Approximate num_datasets not set — fill when you have an estimate.'
+
+- repository_name: BALSA (Brain Analysis Library of Spatial maps and Atlases)
+  url: https://balsa.wustl.edu/
+  description: A database for hosting and sharing neuroimaging and neuroanatomical datasets for human and primate species.
+  modalities:
+  - MEG
+  - structural imaging
+  - functional imaging
+  - other
+  access_type: registration_required
+
+- repository_name: DPUK (Data Portal UK)
+  url: https://portal.dementiasplatform.uk/
+  description: Open access platform with data from over 3 million people.
+  modalities:
+  - electrophysiology
+  - structural imaging
+  - functional imaging
+  - genomics
+  - other
+  access_type: registration_required
+  num_datasets: 53
+
+- repository_name: HPA (The Human Protein Atlas)
+  url: https://www.proteinatlas.org/
+  description: Open access resource for human proteins.
+  modalities:
+  - transcriptomics
+  - genomics
+  - metadata
+  - other
+  access_type: open
