@@ -1,0 +1,17 @@
+dataset_name: Naturalistic Neuroimaging Database
+dataset_id: NNDb_v1_2020
+modalities: [fMRI, functional, anatomical]
+species: human
+recording_task: [naturalistic_viewing]
+access_type: open
+url: https://openneuro.org/datasets/ds002837/versions/1.0.6
+paper_url: https://doi.org/10.1038/s41597-020-00680-2
+num_subjects: 86
+num_sessions: 86
+repository: OpenNeuro
+year: 2020
+license: CC0
+bids_compliant: true
+notes: >-
+  a naturalistic neuroimaging database for understanding the 
+  brain using ecological stimuli.

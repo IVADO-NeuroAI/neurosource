@@ -1,0 +1,15 @@
+dataset_name: Narratives Dataset
+dataset_id: Narratives_2021
+modalities: [fMRI, fmap, functional]
+species: human
+recording_task: [auditory, speech]
+access_type: open
+url: https://fcon_1000.projects.nitrc.org/indi/retro/Narratives.html
+paper_url: https://doi.org/10.1038/s41597-021-01033-3
+num_subjects: 345
+num_sessions: 891
+repository: INDI
+year: 2021
+license: CC0
+bids_compliant: true
+tags: [word, sentence, speech, language, naturalistic language comprehension]

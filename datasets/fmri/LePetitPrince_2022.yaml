@@ -1,0 +1,15 @@
+dataset_name: Le Petit Prince Dataset
+dataset_id: LePetitPrince_2022
+modalities: [fMRI, functional, anatomical]
+species: human
+recording_task: [auditory, speech]
+access_type: open
+url: https://doi.org/10.18112/openneuro.ds003643.v2.0.7
+paper_url: https://doi.org/10.1038/s41597-022-01625-7
+num_subjects: 112
+num_sessions: 112
+repository: OpenNeuro
+year: 2022
+license: CC0
+bids_compliant: true
+tags: [word, sentence, language, multilingual,speech]
