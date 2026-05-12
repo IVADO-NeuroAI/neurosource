@@ -1,0 +1,23 @@
+- dataset_name: The Cambridge Centre for Ageing and Neuroscience (Cam-CAN) data repository
+  dataset_id: Cam-CAN_2017
+  modalities: [MEG, EEG, MRI_T1, MRI_T2, dwi, fMRI, behavior, phenotype]
+  species: human
+  recording_task: [resting_state, cognitive]
+  access_type: controlled
+  url: https://camcan.mrc-cbu.cam.ac.uk
+  num_subjects: 612
+  year: 2017
+  repository: Cam-CAN
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1016/j.neuroimage.2015.09.018
+  paper_doi: 10.1016/j.neuroimage.2015.09.018
+  tags:
+    - healthy-controls
+    - adult
+    - lifespan
+    - attention
+    - emotion
+    - action
+    - language
+    - memory
+  notes: Multimodal cross-sectional uniform adult-lifespan population-based dataset.
