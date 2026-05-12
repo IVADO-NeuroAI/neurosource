@@ -1,4 +1,4 @@
-- dataset_name: BioFind (Biomagnetic biomarkers for dementia)
+- dataset_name: BioFIND (Biomagnetic biomarkers for dementia)
   dataset_id: BIOFIND_2022
   modalities: [MEG, MRI_T1]
   species: human
