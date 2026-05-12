@@ -32,7 +32,7 @@
 
 - dataset_name: BNCI Mental arithmetic (003-2014)
   dataset_id: BNCI2014-003
-  modalities: [fNIRS]
+  modalities: [NIRS]
   species: human
   recording_task: [cognitive]
   access_type: open

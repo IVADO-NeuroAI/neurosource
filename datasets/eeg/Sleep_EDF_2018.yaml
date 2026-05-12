@@ -1,0 +1,15 @@
+dataset_name: Sleep-EDF Database Expanded
+dataset_id: SleepEDF_2018
+modalities: [EEG, EOG, EMG]
+species: human
+recording_task: [sleep]
+access_type: open
+url: https://doi.org/10.13026/C2X676
+paper_url: https://doi.org/10.1109/10.867928
+num_subjects: 78
+num_sessions: 197
+year: 2018
+repository: PhysioNet
+license: CC0
+bids_compliant: false
+tags: [sleep, sleep-staging, sleep-telemetry, healthy-controls]

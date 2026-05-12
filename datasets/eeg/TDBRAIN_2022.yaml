@@ -1,0 +1,16 @@
+dataset_name: TDBRAIN (Two Decades Brainclinics Research Archive for Insights in Neurophysiology)
+dataset_id: TDBRAIN_2022
+modalities: [EEG]
+species: human
+recording_task: [resting_state]
+access_type: registration_required
+url: https://brainclinics.com/resources/tdbrain-dataset
+paper_url: https://doi.org/10.1038/s41597-022-01409-z
+num_subjects: 1274
+repository: Brainclinics Foundation
+year: 2022
+license: CC-BY-4.0
+bids_compliant: true
+clinical_based_sample: true
+tags: [psychiatric, disorders, mental-health, depression, ADHD, memory,
+  OCD, Parkinson, insomnia, healthy-controls, clinical]
