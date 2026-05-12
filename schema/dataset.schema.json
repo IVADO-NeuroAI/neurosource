@@ -33,14 +33,14 @@
       "minLength": 1,
       "description": "Primary species represented in the dataset."
     },
-    "task": {
-      "type": "string",
-      "minLength": 1,
+    "recording_task": {
+      "type": "array",
+      "items": { "type": "string" },
       "description": "Main experimental or benchmark task associated with the dataset."
     },
     "access_type": {
       "type": "string",
-      "enum": ["open", "registration_required", "restricted", "other"]
+      "description": "Access level."
     },
     "url": {
       "type": "string",
@@ -52,15 +52,47 @@
     },
     "paper_doi": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "DOI of the associated publication."
     },
     "license": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "License of the dataset."
     },
     "notes": {
       "type": "string",
       "minLength": 1
+    },
+    "num_subjects": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of subjects in the dataset."
+    },
+    "num_sessions": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of recording sessions."
+    },
+    "repository": {
+      "type": "string",
+      "description": "Data platform hosting this dataset (e.g., OpenNeuro, DANDI)."
+    },
+    "bids_compliant": {
+      "type": "boolean"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Freeform tags for search and filtering."
+    },
+    "clinical_based_sample": {
+      "type": "boolean"
+    },
+    "hours": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total hours of recording time."
     }
   }
 }
