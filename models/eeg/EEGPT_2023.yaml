@@ -1,5 +1,5 @@
 model_name: EEGPT
-modality: EEG
+modality: [EEG]
 architecture: Transformer
 task: Foundation Model
 year: 2023

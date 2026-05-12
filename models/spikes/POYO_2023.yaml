@@ -1,5 +1,5 @@
 model_name: POYO
-modality: spikes
+modality: [spikes]
 architecture: Perceiver with cross-attention
 task: foundation model
 year: 2023

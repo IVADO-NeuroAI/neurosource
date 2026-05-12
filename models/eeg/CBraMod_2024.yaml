@@ -1,5 +1,5 @@
 model_name: CBraMod
-modality: EEG
+modality: [EEG]
 architecture: Criss-cross Transformer
 task: foundation model
 year: 2024

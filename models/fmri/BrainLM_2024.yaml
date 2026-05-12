@@ -1,5 +1,5 @@
 model_name: BrainLM
-modality: fMRI
+modality: [fMRI]
 architecture: Transformer masked autoencoder
 task: foundation model
 year: 2024
