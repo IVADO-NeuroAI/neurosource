@@ -18,6 +18,7 @@ MODALITY_DIR_MAP = {
     "spikes": "spikes",
     "LFP": "lfp",
     "calcium": "calcium",
+    "microscopy": "microscopy", 
     "other": "other",
 }
 
@@ -132,11 +133,13 @@ def validate_entry_file(path, schema, filename_pattern):
 
     if isinstance(raw, dict):
         items = [(path, raw)]
+        is_multi_entry = False
     elif isinstance(raw, list):
         items = [(f"{path}[{i}]", item) for i, item in enumerate(raw)]
+        is_multi_entry = True
     else:
         errors.append(f"{path}: YAML must be a mapping or list of mappings")
-        return [], errors
+        return [], errors, False
 
     validator = Draft7Validator(schema, format_checker=FORMAT_CHECKER)
     validated = []
@@ -148,10 +151,15 @@ def validate_entry_file(path, schema, filename_pattern):
             errors.append(f"{label}: {error.message}")
         validated.append((label, data))
 
-    return validated, errors
+    return validated, errors, is_multi_entry
 
 
-def validate_model_consistency(path, entry):
+def _filename_prefix(path):
+    """Extract the first token from a filename stem, splitting on _ or -."""
+    return re.split(r"[_-]", path.stem)[0]
+
+
+def validate_model_consistency(path, entry, multi_entry=False):
     errors = []
 
     modalities = entry["modality"]
@@ -163,16 +171,24 @@ def validate_model_consistency(path, entry):
             f"{sorted(expected_dirs)}"
         )
 
-    expected_name = f"{slugify_model_name(entry['model_name'])}_{entry['year']}.yaml"
-    if path.name != expected_name:
-        errors.append(
-            f"{path}: filename should be '{expected_name}' based on model_name and year"
-        )
+    if multi_entry:
+        prefix = _filename_prefix(path)
+        if prefix not in entry["model_name"]:
+            errors.append(
+                f"{path}: model_name '{entry['model_name']}' does not contain "
+                f"filename prefix '{prefix}'"
+            )
+    else:
+        expected_name = f"{slugify_model_name(entry['model_name'])}_{entry['year']}.yaml"
+        if path.name != expected_name:
+            errors.append(
+                f"{path}: filename should be '{expected_name}' based on model_name and year"
+            )
 
     return errors
 
 
-def validate_dataset_consistency(path, entry):
+def validate_dataset_consistency(path, entry, multi_entry=False):
     errors = []
 
     if len(entry["modalities"]) == 1:
@@ -185,11 +201,19 @@ def validate_dataset_consistency(path, entry):
     elif path.parent.name == "other":
         pass
 
-    expected_name = f"{entry['dataset_id']}.yaml"
-    if path.name != expected_name:
-        errors.append(
-            f"{path}: filename should be '{expected_name}' based on dataset_id"
-        )
+    if multi_entry:
+        prefix = _filename_prefix(path)
+        if prefix not in entry["dataset_id"]:
+            errors.append(
+                f"{path}: dataset_id '{entry['dataset_id']}' does not contain "
+                f"filename prefix '{prefix}'"
+            )
+    else:
+        expected_name = f"{entry['dataset_id']}.yaml"
+        if path.name != expected_name:
+            errors.append(
+                f"{path}: filename should be '{expected_name}' based on dataset_id"
+            )
 
     return errors
 
@@ -201,16 +225,16 @@ def collect_category(category, taxonomies):
     seen_ids = set()
 
     for path in iter_yaml_files(category["root"]):
-        items, file_errors = validate_entry_file(
+        items, file_errors, is_multi_entry = validate_entry_file(
             path, schema, category.get("filename_pattern")
         )
         errors.extend(file_errors)
 
         for label, data in items:
             if category["name"] == "models":
-                errors.extend(validate_model_consistency(path, data))
+                errors.extend(validate_model_consistency(path, data, is_multi_entry))
             elif category["name"] == "datasets":
-                errors.extend(validate_dataset_consistency(path, data))
+                errors.extend(validate_dataset_consistency(path, data, is_multi_entry))
 
             errors.extend(validate_taxonomy(label, data, category, taxonomies))
 
