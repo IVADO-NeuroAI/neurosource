@@ -1,5 +1,5 @@
 - dataset_name: PharmacoMeg 1/f data
-  dataset_id: PharmacoMeg_2018
+  dataset_id: PharmacoMEG_2018
   modalities: [MEG]
   species: human
   recording_task: [resting_state]

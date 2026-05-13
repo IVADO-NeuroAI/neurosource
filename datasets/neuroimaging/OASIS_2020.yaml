@@ -1,5 +1,5 @@
 - dataset_name: OASIS 1 (Open Access Series of Imaging studies)
-  dataset_id: oasis-1
+  dataset_id: OASIS_1
   modalities: [MRI_T1, metadata]
   species: human
   recording_task: [resting_state]
@@ -16,7 +16,7 @@
   notes: Cross-sectional MRI Data in Young, Middle Aged, Nondemented and Demented Older Adults.
 
 - dataset_name: OASIS 2 (Open Access Series of Imaging studies)
-  dataset_id: oasis-2
+  dataset_id: OASIS_2
   modalities: [MRI_T1, metadata]
   species: human
   recording_task: [resting_state]
@@ -35,7 +35,7 @@
     in Young, Middle Aged, Nondemented and Demented Older Adults.
 
 - dataset_name: OASIS 3 (Open Access Series of Imaging studies)
-  dataset_id: oasis-3
+  dataset_id: OASIS_3
   modalities: [MRI_T1, MRI_T2, fMRI, PET, metadata, other]
   species: human
   recording_task: [resting_state]
@@ -53,7 +53,7 @@
     and Alzheimer's Disease.
 
 - dataset_name: OASIS 4 (Open Access Series of Imaging studies)
-  dataset_id: oasis-4
+  dataset_id: OASIS_4
   modalities: [MRI_T1, MRI_T2, fMRI, PET, metadata, other]
   species: human
   recording_task: [resting_state]

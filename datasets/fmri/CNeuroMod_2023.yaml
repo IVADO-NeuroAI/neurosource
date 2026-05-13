@@ -1,5 +1,5 @@
 dataset_name: Courtois NeuroMod Things Dataset
-dataset_id: CNeuroMod_THINGS_2023
+dataset_id: CNeuroMod_2023
 modalities: [fMRI, fmap, functional]
 species: human
 recording_task: [naturalistic_viewing]

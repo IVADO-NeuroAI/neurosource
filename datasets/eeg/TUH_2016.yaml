@@ -1,5 +1,5 @@
 dataset_name: TUH EEG Corpora
-dataset_id: TUH_EEG_2016
+dataset_id: TUH_2016
 modalities: [EEG]
 species: human
 recording_task: [other]

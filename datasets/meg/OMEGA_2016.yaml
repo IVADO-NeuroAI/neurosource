@@ -1,5 +1,5 @@
 dataset_name: OMEGA — Open MEG Archives
-dataset_id: omega_2016
+dataset_id: OMEGA_2016
 modalities: [MEG, anatomical, metadata]
 species: human
 recording_task: [resting_state]

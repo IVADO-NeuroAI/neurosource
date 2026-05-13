@@ -1,5 +1,5 @@
 - dataset_name: Subcellular Map of the Human Proteome
-  dataset_id: human_proteome_subcellular_2017
+  dataset_id: HPA_subcellular_2017
   modalities: [microscopy]
   access_type: open
   url: https://www.proteinatlas.org/humanproteome/subcellular

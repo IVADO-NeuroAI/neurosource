@@ -1,5 +1,5 @@
 - dataset_name: LibriBrain
-  dataset_id: LIBRIBRAIN_2025
+  dataset_id: LibriBrain_2025
   modalities: [MEG]
   species: human
   recording_task: [resting_state, active, auditory]

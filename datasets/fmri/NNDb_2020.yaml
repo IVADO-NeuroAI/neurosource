@@ -1,5 +1,5 @@
-dataset_name: Naturalistic Neuroimaging Database
-dataset_id: NNDb_v1_2020
+dataset_name: Naturalistic Neuroimaging Database v1
+dataset_id: NNDb_2020
 modalities: [fMRI, functional, anatomical]
 species: human
 recording_task: [naturalistic_viewing]

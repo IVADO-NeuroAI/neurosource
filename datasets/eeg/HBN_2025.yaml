@@ -1,5 +1,5 @@
 dataset_name: Healthy Brain Network (HBN) EEG — Releases 1 - 11
-dataset_id: HBN_EEG_2025
+dataset_id: HBN_2025
 modalities: [EEG, behavior]
 species: human
 recording_task: 
