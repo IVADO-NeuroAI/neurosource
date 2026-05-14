@@ -30,21 +30,6 @@
   notes: >-
     Common EEG motor imagery benchmark used in model evaluation and transfer settings.
 
-- dataset_name: BNCI Mental arithmetic (003-2014)
-  dataset_id: BNCI2014-003
-  modalities: [NIRS]
-  species: human
-  recording_task: [cognitive]
-  access_type: open
-  url: https://bnci-horizon-2020.eu/database/data-sets
-  num_subjects: 8
-  num_sessions: 8
-  year: 2014
-  repository: BNCI Horizon 2020
-  license: CC-BY-ND-4.0
-  paper_url: https://doi.org/10.1007/s11517-011-0792-5
-  tags: [cognitive, BCI]
-
 - dataset_name: BNCI Two class motor imagery (004-2014)
   dataset_id: BNCI2014-004
   modalities: [EEG, EOG]
