@@ -20,3 +20,26 @@ modality_directories:
   NIRS: nirs
   PET: pet
 
+# Directories for multi-modality datasets.
+# Each entry requires at least `min_modalities` from the listed set.
+composite_directories:
+  multimodal:
+    min_modalities: 2
+    from:
+      - MEG
+      - EEG
+      - iEEG
+      - ECoG
+      - MRI_T1
+      - MRI_T2
+      - dwi
+      - fMRI
+      - PET
+      - fmap
+      - NIRS
+      - LFP
+      - spikes
+      - calcium
+      - genomics
+      - microscopy
+

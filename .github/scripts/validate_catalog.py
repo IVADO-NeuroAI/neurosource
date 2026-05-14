@@ -67,7 +67,7 @@ def load_yaml(path):
         return yaml.safe_load(handle)
 
 
-def validate_taxonomies(taxonomies, modality_dir_map):
+def validate_taxonomies(taxonomies, modality_dir_map, composite_directories):
     """Check that directory map keys and auxiliary_modalities are subsets of modalities."""
     errors = []
     all_modalities = set(taxonomies.get("modalities", []))
@@ -78,6 +78,14 @@ def validate_taxonomies(taxonomies, modality_dir_map):
             f"directory_map.yaml: modality_directories contains keys not in "
             f"taxonomies modalities: {sorted(extra)}"
         )
+
+    for dirname, rule in composite_directories.items():
+        extra = set(rule.get("from", [])) - all_modalities
+        if extra:
+            errors.append(
+                f"directory_map.yaml: composite_directories.{dirname}.from contains "
+                f"values not in taxonomies modalities: {sorted(extra)}"
+            )
 
     aux = set(taxonomies.get("auxiliary_modalities", []))
     extra = aux - all_modalities
@@ -202,7 +210,7 @@ def validate_model_consistency(path, entry, modality_dir_map, multi_entry=False)
 
 
 def validate_dataset_consistency(path, entry, modality_dir_map, auxiliary_modalities,
-                                 multi_entry=False):
+                                 composite_directories, multi_entry=False):
     errors = []
 
     modalities = entry["modalities"]
@@ -213,15 +221,23 @@ def validate_dataset_consistency(path, entry, modality_dir_map, auxiliary_modali
             f"(auxiliary: {sorted(auxiliary_modalities)})"
         )
 
-    if len(modalities) == 1:
+    parent_dir = path.parent.name
+
+    if parent_dir in composite_directories:
+        rule = composite_directories[parent_dir]
+        matching = [m for m in modalities if m in rule["from"]]
+        if len(matching) < rule["min_modalities"]:
+            errors.append(
+                f"{path}: datasets under '{parent_dir}/' must have at least "
+                f"{rule['min_modalities']} modalities from {rule['from']}, "
+                f"found {matching or 'none'}"
+            )
+    elif len(modalities) == 1:
         expected_dir = modality_dir_map.get(modalities[0], "other")
-        parent_dir = path.parent.name
         if parent_dir != expected_dir:
             errors.append(
                 f"{path}: single-modality dataset should live under '{expected_dir}/'"
             )
-    elif path.parent.name == "other":
-        pass
 
     if multi_entry:
         prefix = _filename_prefix(path)
@@ -240,7 +256,8 @@ def validate_dataset_consistency(path, entry, modality_dir_map, auxiliary_modali
     return errors
 
 
-def collect_category(category, taxonomies, modality_dir_map, auxiliary_modalities):
+def collect_category(category, taxonomies, modality_dir_map, auxiliary_modalities,
+                     composite_directories):
     schema = load_json(category["schema"])
     entries = []
     errors = []
@@ -258,7 +275,8 @@ def collect_category(category, taxonomies, modality_dir_map, auxiliary_modalitie
                     path, data, modality_dir_map, is_multi_entry))
             elif category["name"] == "datasets":
                 errors.extend(validate_dataset_consistency(
-                    path, data, modality_dir_map, auxiliary_modalities, is_multi_entry))
+                    path, data, modality_dir_map, auxiliary_modalities,
+                    composite_directories, is_multi_entry))
 
             errors.extend(validate_taxonomy(label, data, category, taxonomies))
 
@@ -293,14 +311,16 @@ def main():
     taxonomies = load_yaml(TAXONOMY_PATH)
     directory_map = load_yaml(DIRECTORY_MAP_PATH)
     modality_dir_map = dict(directory_map.get("modality_directories", {}))
+    composite_directories = dict(directory_map.get("composite_directories", {}))
     auxiliary_modalities = set(taxonomies.get("auxiliary_modalities", []))
 
-    errors = validate_taxonomies(taxonomies, modality_dir_map)
+    errors = validate_taxonomies(taxonomies, modality_dir_map, composite_directories)
 
     collected = {}
     for category in CATEGORIES:
         entries, category_errors = collect_category(
-            category, taxonomies, modality_dir_map, auxiliary_modalities)
+            category, taxonomies, modality_dir_map, auxiliary_modalities,
+            composite_directories)
         collected[category["name"]] = entries
         errors.extend(category_errors)
 
