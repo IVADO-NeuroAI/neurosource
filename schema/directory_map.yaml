@@ -1,0 +1,22 @@
+# Modality-to-directory mapping. Each key must be a valid modality.
+# Unlisted modalities default to "other/".
+modality_directories:
+  EEG: eeg
+  MEG: meg
+  fMRI: func
+  iEEG: ieeg
+  ECoG: ieeg
+  MRI_T1: anat
+  MRI_T2: anat
+  dwi: dwi
+  fmap: fmap
+  spikes: spikes
+  LFP: lfp
+  calcium: calcium
+  microscopy: microscopy
+  spectroscopy: spectroscopy
+  transcriptomics: transcriptomics
+  genomics: genomics
+  NIRS: nirs
+  PET: pet
+
