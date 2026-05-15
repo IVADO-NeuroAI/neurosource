@@ -1,0 +1,17 @@
+- dataset_name: MEG-MASC (Manually Annotated Sub-Corpus)
+  dataset_id: MEG_MASC_2023
+  modalities: [MEG]
+  species: human
+  recording_task: [resting_state, cognitive, auditory, active]
+  access_type: open
+  url: https://doi.org/10.17605/OSF.IO/AG3KJ
+  num_subjects: 27
+  num_sessions: 54
+  year: 2023
+  repository: OSF (The Open Science Framework)
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1038/s41597-023-02752-5
+  paper_doi: 10.1038/s41597-023-02752-5
+  tags: [language, speech-decoding, healthy-controls]
+  bids_compliant: true
+  notes: A high quality MEG dataset for evaluating natural speech processing.

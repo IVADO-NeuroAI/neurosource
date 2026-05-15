@@ -1,0 +1,18 @@
+dataset_name: Courtois NeuroMod Things Dataset
+dataset_id: CNeuroMod_2023
+modalities: [fMRI, fmap, functional]
+species: human
+recording_task: [naturalistic_viewing]
+access_type: open
+url: https://doi.org/10.18112/openneuro.ds005165.v1.0.4
+paper_url: https://doi.org/10.1038/s41467-024-50310-3
+num_subjects: 10
+num_sessions: 50
+repository: OpenNeuro
+year: 2024
+license: CC0
+bids_compliant: true
+tags: [Things, visual]
+notes: >-
+   a large-scale fMRI dataset for task-and data-driven assessment of object 
+   representation and visual memory recognition in the human brain.

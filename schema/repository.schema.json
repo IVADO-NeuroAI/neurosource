@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Data Repository Schema",
+  "type": "object",
+  "required": ["repository_name", "url", "modalities", "access_type"],
+  "properties": {
+    "repository_name": {
+      "type": "string",
+      "description": "Full name of the data repository or platform."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Primary URL of the repository."
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the repository."
+    },
+    "modalities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Modalities hosted."
+    },
+    "access_type": {
+      "type": "string",
+      "description": "Access level."
+    },
+    "num_datasets": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Approximate number of datasets hosted."
+    },
+    "data_formats": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Common data formats available (e.g., BIDS, NWB, EDF)."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Freeform notes or context."
+    }
+  }
+}

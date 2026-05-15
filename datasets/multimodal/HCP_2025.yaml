@@ -1,0 +1,48 @@
+- dataset_name: HCP Young Adult 2025
+  dataset_id: HCP_YA_2025
+  modalities: [MEG, anatomical, fMRI, behavior]
+  species: human
+  recording_task: [resting_state, active]
+  access_type: registration_required
+  url: https://balsa.wustl.edu/project?project=HCP_YA
+  num_subjects: 1113
+  year: 2025
+  repository: BALSA - Human Connectome Project
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1016/j.neuroimage.2021.118543
+  paper_doi: 10.1016/j.neuroimage.2021.118543
+  tags: [resting-state, healthy-controls]
+  notes: HCP Young Adult dataset with MEG and fMRI data.
+
+- dataset_name: HCP Young Adult 2025 - MEG
+  dataset_id: HCP_YA_MEG_2025
+  modalities: [MEG, anatomical, fMRI, behavior]
+  species: human
+  recording_task: [resting_state, active]
+  access_type: registration_required
+  url: https://balsa.wustl.edu/project?project=HCP_YA
+  num_subjects: 95
+  year: 2025
+  repository: BALSA - Human Connectome Project
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1016/j.neuroimage.2021.118543
+  paper_doi: 10.1016/j.neuroimage.2021.118543
+  tags: [resting-state, healthy-controls]
+  notes: Subset of the HCP Young Adult dataset including subjects with MEG and imaging data.
+
+- dataset_name: HCP Aging Adult Brain Connectome (AABC) - Release 2
+  dataset_id: HCP_AABC_2_2025
+  modalities: [MEG, anatomical, fMRI, behavior]
+  species: human
+  recording_task: [resting_state, active]
+  access_type: registration_required
+  url: https://balsa.wustl.edu/project?project=AABC2
+  num_subjects: 1390
+  num_sessions: 2789
+  year: 2025
+  repository: BALSA - Human Connectome Project
+  license: CC-BY-4.0
+  paper_url: https://doi.org/10.1016/j.neuroimage.2021.118543
+  paper_doi: 10.1016/j.neuroimage.2021.118543
+  tags: [resting-state, healthy-controls]
+  notes: HCP Aging Adult Brain Connectome dataset with cross-sectional and longitudinal 3T MR scans.

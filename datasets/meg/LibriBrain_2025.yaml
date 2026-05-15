@@ -1,0 +1,17 @@
+- dataset_name: LibriBrain
+  dataset_id: LibriBrain_2025
+  modalities: [MEG]
+  species: human
+  recording_task: [resting_state, active, auditory]
+  access_type: open
+  url: https://huggingface.co/datasets/pnpl/LibriBrain
+  num_subjects: 1
+  num_sessions: 91
+  year: 2025
+  repository: Hugging Face
+  license: CC-BY-NC-4.0
+  paper_url: https://doi.org/10.48550/arXiv.2506.02098
+  paper_doi: 10.48550/arXiv.2506.02098
+  tags: [Auditory, listening, speech, language, healthy-controls]
+  bids_compliant: true
+  notes: Over 50 hours of within-subject MEG recordings to improve speech decoding.methods at scale.

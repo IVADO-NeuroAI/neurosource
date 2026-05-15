@@ -1,0 +1,118 @@
+modalities:
+  - electrophysiology
+  - anatomical
+  - functional
+  - behavior
+  - dwi
+  - EEG
+  - EMG
+  - fmap
+  - iEEG
+  - ECoG
+  - MEG
+  - microscopy
+  - motion
+  - phenotype
+  - spectroscopy
+  - spikes
+  - calcium
+  - genomics
+  - fMRI
+  - MRI_T1
+  - MRI_T2
+  - EOG
+  - MRS
+  - perfusion
+  - PET
+  - NIRS
+  - PSG
+  - TMS
+  - LFP
+  - biometrics
+  - metadata
+  - transcriptomics
+  - other
+
+access_types:
+  - open
+  - registration_required
+  - controlled
+  - mix_of_open_and_controlled
+
+architectures:
+  - CNN
+  - Transformer
+  - RNN
+  - GNN
+  - VAE
+  - Diffusion
+  - other
+
+tasks:
+  - classification
+  - decoding
+  - reconstruction
+  - generation
+  - segmentation
+  - foundation_model
+  - other
+
+species:
+  - human
+  - mouse
+  - rat
+  - macaque
+  - zebrafish
+  - other
+
+recording_tasks:
+  - resting_state
+  - sleep
+  - passive
+  - active
+  - motor_imagery
+  - motor_execution
+  - mental_imagery
+  - mental_arithmetic
+  - naturalistic_viewing
+  - cognitive
+  - imagery
+  - visual
+  - auditory
+  - typing
+  - seizure
+  - speech
+  - P300
+  - other
+
+objectives:
+  - classification
+  - regression
+  - clustering
+  - retrieval
+  - other
+
+licenses:
+  - CC0
+  - CC-BY-4.0
+  - CC-BY-SA-4.0
+  - CC-BY-NC-4.0
+  - CC-BY-NC-ND-4.0
+  - CC-BY-ND-4.0
+  - MIT
+  - BSD-3-Clause
+  - Apache-2.0
+  - custom
+  - other
+
+# Modalities that are complementary to a primary modality.
+# A dataset must have at least one non-auxiliary modality.
+auxiliary_modalities:
+  - metadata
+  - behavior
+  - phenotype
+  - motion
+  - EMG
+  - EOG
+  - biometrics
+  - other

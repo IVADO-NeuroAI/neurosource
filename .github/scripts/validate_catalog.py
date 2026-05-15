@@ -9,16 +9,8 @@ from jsonschema import Draft7Validator, FormatChecker
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FORMAT_CHECKER = FormatChecker()
-MODALITY_DIR_MAP = {
-    "EEG": "eeg",
-    "MEG": "meg",
-    "fMRI": "fmri",
-    "ECoG": "ecog",
-    "spikes": "spikes",
-    "LFP": "lfp",
-    "calcium": "calcium",
-    "other": "other",
-}
+TAXONOMY_PATH = REPO_ROOT / "schema" / "taxonomies.yaml"
+DIRECTORY_MAP_PATH = REPO_ROOT / "schema" / "directory_map.yaml"
 
 CATEGORIES = [
     {
@@ -27,6 +19,12 @@ CATEGORIES = [
         "schema": REPO_ROOT / "schema" / "model.schema.json",
         "id_field": "model_name",
         "filename_pattern": r"^[A-Za-z0-9_-]+_\d{4}\.yaml$",
+        "taxonomy_checks": {},
+        "taxonomy_list_checks": {
+            "modality": "modalities",
+            # "architecture": "architectures",
+            # "task": "tasks",
+        },
     },
     {
         "name": "datasets",
@@ -34,6 +32,27 @@ CATEGORIES = [
         "schema": REPO_ROOT / "schema" / "dataset.schema.json",
         "id_field": "dataset_id",
         "filename_pattern": r"^[A-Za-z0-9_-]+(?:_\d{4})?\.yaml$",
+        "taxonomy_checks": {
+            "species": "species",
+            "access_type": "access_types",
+            "license": "licenses",
+        },
+        "taxonomy_list_checks": {
+            "modalities": "modalities",
+            "recording_task": "recording_tasks",
+        },
+    },
+    {
+        "name": "repositories",
+        "root": REPO_ROOT / "repositories",
+        "schema": REPO_ROOT / "schema" / "repository.schema.json",
+        "id_field": "repository_name",
+        "taxonomy_checks": {
+            "access_type": "access_types",
+        },
+        "taxonomy_list_checks": {
+            "modalities": "modalities",
+        },
     },
 ]
 
@@ -48,10 +67,77 @@ def load_yaml(path):
         return yaml.safe_load(handle)
 
 
+def validate_taxonomies(taxonomies, modality_dir_map, composite_directories):
+    """Check that directory map keys and auxiliary_modalities are subsets of modalities."""
+    errors = []
+    all_modalities = set(taxonomies.get("modalities", []))
+
+    extra = set(modality_dir_map.keys()) - all_modalities
+    if extra:
+        errors.append(
+            f"directory_map.yaml: modality_directories contains keys not in "
+            f"taxonomies modalities: {sorted(extra)}"
+        )
+
+    for dirname, rule in composite_directories.items():
+        extra = set(rule.get("from", [])) - all_modalities
+        if extra:
+            errors.append(
+                f"directory_map.yaml: composite_directories.{dirname}.from contains "
+                f"values not in taxonomies modalities: {sorted(extra)}"
+            )
+
+    aux = set(taxonomies.get("auxiliary_modalities", []))
+    extra = aux - all_modalities
+    if extra:
+        errors.append(
+            f"taxonomies.yaml: auxiliary_modalities contains values not in modalities: "
+            f"{sorted(extra)}"
+        )
+
+    return errors
+
+
 def iter_yaml_files(root):
     if not root.exists():
         return []
     return sorted(root.rglob("*.yaml"))
+
+
+def taxonomy_multivalues(entry, field):
+    """Return values for a field that may be a string or list of strings."""
+    value = entry.get(field)
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list):
+        return value
+    return []
+
+
+def validate_taxonomy(label, entry, category, taxonomies):
+    errors = []
+
+    for field, taxonomy_key in category.get("taxonomy_checks", {}).items():
+        value = entry.get(field)
+        if value is not None and value not in taxonomies[taxonomy_key]:
+            allowed = ", ".join(taxonomies[taxonomy_key])
+            errors.append(
+                f"{label}: '{field}' value '{value}' "
+                f"not in taxonomies.{taxonomy_key} ({allowed})"
+            )
+
+    for field, taxonomy_key in category.get("taxonomy_list_checks", {}).items():
+        for value in taxonomy_multivalues(entry, field):
+            if value not in taxonomies[taxonomy_key]:
+                allowed = ", ".join(taxonomies[taxonomy_key])
+                errors.append(
+                    f"{label}: '{field}' contains '{value}' "
+                    f"not in taxonomies.{taxonomy_key} ({allowed})"
+                )
+
+    return errors
 
 
 def slugify_model_name(name):
@@ -61,90 +147,148 @@ def slugify_model_name(name):
 def validate_entry_file(path, schema, filename_pattern):
     errors = []
 
-    if not re.match(filename_pattern, path.name):
+    if filename_pattern and not re.match(filename_pattern, path.name):
         errors.append(f"{path}: filename does not match expected convention")
 
-    data = load_yaml(path)
-    if not isinstance(data, dict):
-        errors.append(f"{path}: YAML entry must be a single mapping/object")
-        return None, errors
+    raw = load_yaml(path)
+
+    if isinstance(raw, dict):
+        items = [(path, raw)]
+        is_multi_entry = False
+    elif isinstance(raw, list):
+        items = [(f"{path}[{i}]", item) for i, item in enumerate(raw)]
+        is_multi_entry = True
+    else:
+        errors.append(f"{path}: YAML must be a mapping or list of mappings")
+        return [], errors, False
 
     validator = Draft7Validator(schema, format_checker=FORMAT_CHECKER)
-    for error in validator.iter_errors(data):
-        errors.append(f"{path}: {error.message}")
+    validated = []
+    for label, data in items:
+        if not isinstance(data, dict):
+            errors.append(f"{label}: entry must be a mapping/object")
+            continue
+        for error in validator.iter_errors(data):
+            errors.append(f"{label}: {error.message}")
+        validated.append((label, data))
 
-    return data, errors
+    return validated, errors, is_multi_entry
 
 
-def validate_model_consistency(path, entry):
+def _filename_prefix(path):
+    """Extract the first token from a filename stem, splitting on _ or -."""
+    return re.split(r"[_-]", path.stem)[0]
+
+
+def validate_model_consistency(path, entry, modality_dir_map, multi_entry=False):
     errors = []
 
-    expected_dir = MODALITY_DIR_MAP.get(entry["modality"])
+    modalities = entry["modality"]
     parent_dir = path.parent.name
-    if expected_dir and parent_dir != expected_dir:
+    expected_dirs = {modality_dir_map[m] for m in modalities if m in modality_dir_map}
+    if expected_dirs and parent_dir not in expected_dirs:
         errors.append(
-            f"{path}: modality '{entry['modality']}' should live under '{expected_dir}/'"
+            f"{path}: modality {modalities} should live under one of "
+            f"{sorted(expected_dirs)}"
         )
 
-    expected_name = f"{slugify_model_name(entry['model_name'])}_{entry['year']}.yaml"
-    if path.name != expected_name:
-        errors.append(
-            f"{path}: filename should be '{expected_name}' based on model_name and year"
-        )
+    if multi_entry:
+        prefix = _filename_prefix(path)
+        if prefix not in entry["model_name"]:
+            errors.append(
+                f"{path}: model_name '{entry['model_name']}' does not contain "
+                f"filename prefix '{prefix}'"
+            )
+    else:
+        expected_name = f"{slugify_model_name(entry['model_name'])}_{entry['year']}.yaml"
+        if path.name != expected_name:
+            errors.append(
+                f"{path}: filename should be '{expected_name}' based on model_name and year"
+            )
 
     return errors
 
 
-def validate_dataset_consistency(path, entry):
+def validate_dataset_consistency(path, entry, modality_dir_map, auxiliary_modalities,
+                                 composite_directories, multi_entry=False):
     errors = []
 
-    if len(entry["modalities"]) == 1:
-        expected_dir = MODALITY_DIR_MAP.get(entry["modalities"][0], "other")
-        parent_dir = path.parent.name
+    modalities = entry["modalities"]
+    non_auxiliary = [m for m in modalities if m not in auxiliary_modalities]
+    if not non_auxiliary:
+        errors.append(
+            f"{path}: dataset must have at least one non-auxiliary modality "
+            f"(auxiliary: {sorted(auxiliary_modalities)})"
+        )
+
+    parent_dir = path.parent.name
+
+    if parent_dir in composite_directories:
+        rule = composite_directories[parent_dir]
+        matching = [m for m in modalities if m in rule["from"]]
+        if len(matching) < rule["min_modalities"]:
+            errors.append(
+                f"{path}: datasets under '{parent_dir}/' must have at least "
+                f"{rule['min_modalities']} modalities from {rule['from']}, "
+                f"found {matching or 'none'}"
+            )
+    elif len(modalities) == 1:
+        expected_dir = modality_dir_map.get(modalities[0], "other")
         if parent_dir != expected_dir:
             errors.append(
                 f"{path}: single-modality dataset should live under '{expected_dir}/'"
             )
-    elif path.parent.name == "other":
-        pass
 
-    expected_name = f"{entry['dataset_id']}.yaml"
-    if path.name != expected_name:
-        errors.append(
-            f"{path}: filename should be '{expected_name}' based on dataset_id"
-        )
+    if multi_entry:
+        prefix = _filename_prefix(path)
+        if prefix not in entry["dataset_id"]:
+            errors.append(
+                f"{path}: dataset_id '{entry['dataset_id']}' does not contain "
+                f"filename prefix '{prefix}'"
+            )
+    else:
+        expected_name = f"{entry['dataset_id']}.yaml"
+        if path.name != expected_name:
+            errors.append(
+                f"{path}: filename should be '{expected_name}' based on dataset_id"
+            )
 
     return errors
 
 
-def collect_category(category):
+def collect_category(category, taxonomies, modality_dir_map, auxiliary_modalities,
+                     composite_directories):
     schema = load_json(category["schema"])
     entries = []
     errors = []
     seen_ids = set()
 
     for path in iter_yaml_files(category["root"]):
-        data, file_errors = validate_entry_file(
-            path, schema, category["filename_pattern"]
+        items, file_errors, is_multi_entry = validate_entry_file(
+            path, schema, category.get("filename_pattern")
         )
         errors.extend(file_errors)
-        if data is None:
-            continue
 
-        if category["name"] == "models":
-            errors.extend(validate_model_consistency(path, data))
-        elif category["name"] == "datasets":
-            errors.extend(validate_dataset_consistency(path, data))
+        for label, data in items:
+            if category["name"] == "models":
+                errors.extend(validate_model_consistency(
+                    path, data, modality_dir_map, is_multi_entry))
+            elif category["name"] == "datasets":
+                errors.extend(validate_dataset_consistency(
+                    path, data, modality_dir_map, auxiliary_modalities,
+                    composite_directories, is_multi_entry))
 
-        entry_id = data.get(category["id_field"])
-        if entry_id in seen_ids:
-            errors.append(
-                f"{path}: duplicate {category['id_field']} '{entry_id}'"
-            )
-        else:
-            seen_ids.add(entry_id)
+            errors.extend(validate_taxonomy(label, data, category, taxonomies))
 
-        entries.append((path, data))
+            entry_id = data.get(category["id_field"])
+            if entry_id in seen_ids:
+                errors.append(
+                    f"{label}: duplicate {category['id_field']} '{entry_id}'"
+                )
+            else:
+                seen_ids.add(entry_id)
+
+            entries.append((label, data))
 
     return entries, errors
 
@@ -164,11 +308,19 @@ def validate_cross_references(model_entries, dataset_entries):
 
 
 def main():
-    collected = {}
-    errors = []
+    taxonomies = load_yaml(TAXONOMY_PATH)
+    directory_map = load_yaml(DIRECTORY_MAP_PATH)
+    modality_dir_map = dict(directory_map.get("modality_directories", {}))
+    composite_directories = dict(directory_map.get("composite_directories", {}))
+    auxiliary_modalities = set(taxonomies.get("auxiliary_modalities", []))
 
+    errors = validate_taxonomies(taxonomies, modality_dir_map, composite_directories)
+
+    collected = {}
     for category in CATEGORIES:
-        entries, category_errors = collect_category(category)
+        entries, category_errors = collect_category(
+            category, taxonomies, modality_dir_map, auxiliary_modalities,
+            composite_directories)
         collected[category["name"]] = entries
         errors.extend(category_errors)
 
@@ -187,9 +339,10 @@ def main():
 
     model_count = len(collected.get("models", []))
     dataset_count = len(collected.get("datasets", []))
+    repo_count = len(collected.get("repositories", []))
     print(
         f"Validated catalog successfully: {model_count} model(s), "
-        f"{dataset_count} dataset(s)."
+        f"{dataset_count} dataset(s), {repo_count} repository(ies)."
     )
     return 0
 

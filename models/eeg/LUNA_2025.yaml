@@ -1,0 +1,9 @@
+model_name: LUNA
+modality: [EEG]
+architecture: Transformer
+task: foundation model
+year: 2025
+paper_url: https://doi.org/10.48550/arXiv.2510.22257
+code_url: https://github.com/pulp-bio/BioFoundation
+open_weights: true
+notes: Efficient and Topology-Agnostic Foundation Model for EEG Signal Analysis

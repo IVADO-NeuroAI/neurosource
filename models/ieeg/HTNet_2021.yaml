@@ -1,5 +1,5 @@
 model_name: HTNet
-modality: ECoG
+modality: [ECoG]
 architecture: CNN with Hilbert projection layer
 task: transfer learning decoding
 year: 2021

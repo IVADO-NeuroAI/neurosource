@@ -1,0 +1,17 @@
+- dataset_name: PharmacoMeg 1/f data
+  dataset_id: PharmacoMEG_2018
+  modalities: [MEG]
+  species: human
+  recording_task: [resting_state]
+  access_type: open
+  url: https://doi.org/10.7910/DVN/9Q1SKM
+  num_subjects: 17
+  year: 2018
+  repository: Harvard Dataverse
+  license: CC0
+  paper_url: https://doi.org/10.1016/j.neuroimage.2018.06.068
+  paper_doi: 10.1016/j.neuroimage.2018.06.068
+  tags: [pharmacology, resting-state, drug, tiagabine, ketamine, perampanel, LSD]
+  bids_compliant: false
+  notes: >-
+    A MEG dataset to study electrophysiological spectra in resting and drug-induced states

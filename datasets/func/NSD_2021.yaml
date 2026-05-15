@@ -1,0 +1,15 @@
+dataset_name: Natural Scenes Dataset
+dataset_id: NSD_2021
+modalities: [fMRI, functional]
+species: human
+recording_task: [naturalistic_viewing]
+access_type: registration_required
+url: https://naturalscenesdataset.org/
+paper_url: https://doi.org/10.1038/s41593-021-00962-x
+num_subjects: 8
+num_sessions: 40
+repository: Natural Scenes Dataset
+year: 2021
+bids_compliant: true
+license: custom
+tags: [naturalistic, visual, cognition]

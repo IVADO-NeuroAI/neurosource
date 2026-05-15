@@ -1,0 +1,28 @@
+- dataset_name: BNCI ECoG-based BCI based on cognitive control (011-2015)
+  dataset_id: BNCI2015-011
+  modalities: [ECoG]
+  species: human
+  recording_task: [cognitive]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 1
+  num_sessions: 2
+  year: 2015
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  paper_url: https://doi.org/10.1002/ana.21985
+  tags: [cognitive-control, BCI]
+
+- dataset_name: BNCI ECoG-based 1-class motor imagery BCI (001-2016)
+  dataset_id: BNCI2016-001
+  modalities: [ECoG]
+  species: human
+  recording_task: [motor_imagery]
+  access_type: open
+  url: https://bnci-horizon-2020.eu/database/data-sets
+  num_subjects: 10
+  num_sessions: 10
+  year: 2016
+  repository: BNCI Horizon 2020
+  license: CC-BY-ND-4.0
+  tags: [motor-imagery, BCI]

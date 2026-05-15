@@ -1,5 +1,5 @@
 model_name: DeepCAD
-modality: calcium
+modality: [calcium]
 architecture: 3D U-Net
 task: self-supervised denoising
 year: 2021

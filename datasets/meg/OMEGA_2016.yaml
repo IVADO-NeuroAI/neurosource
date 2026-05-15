@@ -1,0 +1,14 @@
+dataset_name: OMEGA — Open MEG Archives
+dataset_id: OMEGA_2016
+modalities: [MEG, anatomical, metadata]
+species: human
+recording_task: [resting_state]
+access_type: registration_required
+url: https://www.mcgill.ca/bic/neuroinformatics/omega
+num_subjects: 644
+repository: McGill Brain Imaging Centre
+tags: [standardized, longitudinal_growth, healthy-controls, patients, Parkinson, ADHD, chronic-pain]
+year: 2016
+bids_compliant: true
+paper_url: https://doi.org/10.1016/j.neuroimage.2015.04.028
+notes: Large MEG archive with structural MRI and rich metadata.

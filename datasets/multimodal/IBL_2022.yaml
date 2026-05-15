@@ -1,0 +1,9 @@
+- dataset_name: IBL Brain-Wide Map
+  dataset_id: IBL_BRAIN_WIDE_MAP_2026
+  modalities: [spikes, behavior, calcium]
+  species: mouse
+  recording_task: [active, other]
+  access_type: controlled
+  url: https://www.internationalbrainlab.com/brainwide-map
+  repository: IBL
+  year: 2022

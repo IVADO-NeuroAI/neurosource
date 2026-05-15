@@ -1,0 +1,45 @@
+# Modality-to-directory mapping. Each key must be a valid modality.
+# Unlisted modalities default to "other/".
+modality_directories:
+  EEG: eeg
+  MEG: meg
+  fMRI: func
+  iEEG: ieeg
+  ECoG: ieeg
+  MRI_T1: anat
+  MRI_T2: anat
+  dwi: dwi
+  fmap: fmap
+  spikes: spikes
+  LFP: lfp
+  calcium: calcium
+  microscopy: microscopy
+  spectroscopy: spectroscopy
+  transcriptomics: transcriptomics
+  genomics: genomics
+  NIRS: nirs
+  PET: pet
+
+# Directories for multi-modality datasets.
+# Each entry requires at least `min_modalities` from the listed set.
+composite_directories:
+  multimodal:
+    min_modalities: 2
+    from:
+      - MEG
+      - EEG
+      - iEEG
+      - ECoG
+      - MRI_T1
+      - MRI_T2
+      - dwi
+      - fMRI
+      - PET
+      - fmap
+      - NIRS
+      - LFP
+      - spikes
+      - calcium
+      - genomics
+      - microscopy
+

@@ -1,0 +1,11 @@
+model_name: MEG-GPT
+modality: [MEG]
+architecture: GPT-style Transformer
+task: "cross-subject generalization, decoding"
+year: 2025
+paper_url: https://doi.org/10.48550/arXiv.2510.18080
+code_url: https://github.com/OHBA-analysis/osl-foundation
+dataset_tags: [Cam-CAN_2017]
+open_weights: true
+notes: >-
+  First explicit general-purpose MEG foundation model.
