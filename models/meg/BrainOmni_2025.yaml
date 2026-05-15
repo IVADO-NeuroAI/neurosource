@@ -1,0 +1,10 @@
+model_name: BrainOmni
+modality: [MEG, EEG]
+architecture: Transformer
+task: "cross-dataset generalization, decoding"
+year: 2025
+paper_doi: 10.48550/arXiv.2505.18185
+paper_url: https://doi.org/10.48550/arXiv.2505.18185
+code_url: https://github.com/OpenTSLab/BrainOmni
+open_weights: true
+notes: "First joint EEG–MEG foundation model."

@@ -1,0 +1,9 @@
+model_name: BrainOF
+modality: [MEG, EEG, fMRI]
+architecture: Transformer
+task: "encoding, decoding, modality conversion"
+year: 2026
+paper_doi: 10.48550/arXiv.2602.23410
+paper_url: https://doi.org/10.48550/arXiv.2602.23410
+open_weights: false
+notes: "First tri-modal omnifunctional brain FM."
